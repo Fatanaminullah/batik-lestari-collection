@@ -1,8 +1,10 @@
 import { Image } from "@components/base/Image"
 import { Link } from "@components/base/Link"
 import { useScrollAnim } from "src/hooks/hooks"
+import { useGeneralStore } from "store"
 
 function Navbar() {
+  const { showCartMenu, setShowCartMenu } = useGeneralStore((state) => state)
   return (
     <div className="navbar">
       <div className="container">
@@ -35,7 +37,11 @@ function Navbar() {
           />
         </Link>
         <div className="navbar-right">
-          <div className="btn-cart" role="presentation">
+          <div
+            className="btn-cart"
+            role="presentation"
+            onClick={() => setShowCartMenu(!showCartMenu)}
+          >
             <i className="icr ic-shopping-cart" />
           </div>
         </div>
