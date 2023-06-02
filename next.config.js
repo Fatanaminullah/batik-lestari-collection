@@ -2,7 +2,7 @@
 const ContentSecurityPolicy = `frame-ancestors 'none'`
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   env: {
     BASE_API_URL: process.env.BASE_API_URL,
