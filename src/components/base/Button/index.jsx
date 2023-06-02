@@ -69,7 +69,10 @@ export function Button({
         iconLeft ? " btn-ic-left" : ""
       }${iconRight ? " btn-ic-right" : ""} ${className}`}
       id={id}
-      onClick={onClick}
+      onClick={(e) => {
+        e.preventDefault()
+        onClick(e)
+      }}
       disabled={disabled}
     >
       <span>

@@ -139,6 +139,49 @@
 // ========================================================================================================================================
 
 // ==========================================================================
+// NProgress
+// ==========================================================================
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: $secondary;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px $secondary, 0 0 5px $secondary;
+  opacity: 1;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+
+// ==========================================================================
 // General
 // ==========================================================================
 
@@ -146,3 +189,4 @@
 
 @import "../../../components/global/Layout/Footer/footer";
 @import "../../../components/global/Layout/Navbar/navbar";
+@import "../../../components/global/Layout/Cart/cart";
