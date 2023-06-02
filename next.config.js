@@ -2,12 +2,13 @@
 const ContentSecurityPolicy = `frame-ancestors 'none'`
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   env: {
-    BASE_API_URL: process.env.BASE_API_URL,
     SITE_URL: process.env.SITE_URL,
-    PRODUCTION: process.env.PRODUCTION,
+    WOOCOMMERCE_KEY: process.env.WOOCOMMERCE_KEY,
+    WOOCOMMERCE_SECRET: process.env.WOOCOMMERCE_SECRET,
+    WORDPRESS_URL: process.env.WORDPRESS_URL,
   },
   async headers() {
     return [
