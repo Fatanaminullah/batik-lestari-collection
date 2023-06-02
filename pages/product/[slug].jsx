@@ -1,10 +1,11 @@
 import ProductComponent from "@components/pages/product/product-components"
-import { fetchAllProducts } from "lib/woocommerce-api"
+import { fetchAllProductVariants, fetchAllProducts } from "lib/woocommerce-api"
+import { ToastContainer } from "react-toastify"
 
-function ProductPage({ product }) {
+function ProductPage({ product, variants }) {
   return (
     <>
-      <ProductComponent product={product} />
+      <ProductComponent product={product} variants={variants} />
     </>
   )
 }
@@ -17,7 +18,13 @@ export async function getServerSideProps(ctx) {
   )
   const { slug } = ctx.query
   const product = await fetchAllProducts({ slug })
-  if (!product && !product?.data?.length) {
+  const variants = await fetchAllProductVariants(product?.data[0].id)
+  if (
+    !product &&
+    !product?.data?.length &&
+    !variants &&
+    !variants?.data?.length
+  ) {
     return {
       notFound: true,
     }
@@ -26,6 +33,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       product: data[0],
+      variants: variants?.data,
       seo: {
         title: data[0]?.yoast_head_json?.title,
         description: data[0]?.yoast_head_json?.description || "",

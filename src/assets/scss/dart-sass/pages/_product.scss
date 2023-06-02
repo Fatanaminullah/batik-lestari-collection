@@ -3,8 +3,10 @@
 .sc-product-component {
     .row {
         .col-img {
-            position: sticky;
-            top: 100px;
+            @media screen and (min-width: grid.$lg) {
+                position: sticky;
+                top: 100px;
+            }
             .carousel {
                 .cover {
                     .cover-bg-wrapper {
@@ -33,6 +35,29 @@
                       }
                     }
                   }
+            }
+            .product-attributes {
+                .product-attributes-variant {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    .product-attributes-variant__item {
+                        margin-right: 0.5rem;
+                        width: 75px;
+                        height: 50px;
+                        cursor: pointer;
+                        border: 1.5px solid var(--gray-200);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: var(--font-weight-bold);
+                        font-size: 1.25rem;
+                        transition: all 0.5s ease-in-out;
+                        &.selected {
+                            border: 1.5px solid var(--dark);
+                        }
+                    }
+                }
             }
             @media screen and (max-width: grid.$lg) {
                 margin-top: 1.5rem;

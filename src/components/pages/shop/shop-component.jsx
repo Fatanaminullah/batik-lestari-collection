@@ -20,7 +20,7 @@ function ShopComponent({ title, categoryId = null }) {
       })
       setList(data)
     } catch (error) {
-      toast(<Toast />, {
+      toast(<Toast text={error?.response?.data?.message || error?.message} />, {
         type: "error",
         className: `Toastify__toast-filled`,
       })
@@ -34,8 +34,6 @@ function ShopComponent({ title, categoryId = null }) {
   }, [Router.asPath])
   return (
     <>
-      <ToastContainer position="top-right" hideProgressBar />
-
       <section className="sc-shop-component" ref={trigger}>
         <div className="pt-4 pb-main">
           <div className="container">

@@ -1,9 +1,50 @@
-import { Button, Carousel } from "@components/base"
+import { Button, Carousel, Toast } from "@components/base"
 import { FormatCurrency, convertHtmlToReact } from "lib/utils"
+import { addToCart } from "lib/woocommerce-api"
+import { useState } from "react"
+import { toast } from "react-toastify"
 import { useScrollAnim } from "src/hooks/hooks"
 
-function ProductComponent({ product }) {
+function ProductComponent({ product, variants }) {
   const [trigger, anim] = useScrollAnim()
+  const [loading, setLoading] = useState(false)
+  const [selectedVariant, setSelectedVariant] = useState(variants[0])
+  const onAddToCart = async () => {
+    setLoading(true)
+    addToCart({
+      id: `${selectedVariant.id}`,
+      quantity: "1",
+      variation: {
+        attribute_size: selectedVariant?.attributes[0]?.opt,
+      },
+    })
+      .then((res) =>
+        toast(
+          <Toast
+            variant="success"
+            title={`${product?.name} successfully added to your cart!`}
+            text=""
+          />
+        )
+      )
+      .catch((error) =>
+        toast(
+          <Toast
+            variant="error"
+            text={error?.response?.data?.message || error?.message}
+          />
+        )
+      )
+      .finally(() => setLoading(false))
+  }
+  const onSelectVariant = (name, option) => {
+    const selected = variants.find(
+      (item) =>
+        item?.attributes[0]?.name === name &&
+        item?.attributes[0]?.option === option
+    )
+    setSelectedVariant(selected)
+  }
   return (
     <section className="sc-product-component" ref={trigger}>
       <div className="py-main">
@@ -25,23 +66,50 @@ function ProductComponent({ product }) {
               <h1 className={anim(1)}>{product?.name}</h1>
               <p
                 className={`price ${
-                  product?.sale_price ? "is-on-sale" : ""
+                  selectedVariant?.sale_price ? "is-on-sale" : ""
                 } ${anim(2)}`}
               >
                 <span>
                   {FormatCurrency(
-                    product?.sale_price
-                      ? product?.regular_price
-                      : product?.price
+                    selectedVariant?.sale_price
+                      ? selectedVariant?.regular_price
+                      : selectedVariant?.price
                   )}
                 </span>
-                {product?.sale_price ? (
+                {selectedVariant?.sale_price ? (
                   <span className="sale-price">
-                    {FormatCurrency(product?.sale_price)}
+                    {FormatCurrency(selectedVariant?.sale_price)}
                   </span>
                 ) : null}
               </p>
-              <Button className="w-100 my-4" variant="dark">
+              <div className="product-attributes">
+                {product?.attributes?.map((item) => (
+                  <>
+                    <p className="product-attributes__title">{item.name}</p>
+                    <div className="product-attributes-variant">
+                      {item?.options?.map((opt, i) => (
+                        <div
+                          className={`product-attributes-variant__item ${
+                            selectedVariant?.attributes[0]?.option === opt
+                              ? "selected"
+                              : ""
+                          }`}
+                          key={`attribute-item-${i}`}
+                          onClick={() => onSelectVariant(item.name, opt)}
+                          role="presentation"
+                        >
+                          {opt}
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ))}
+              </div>
+              <Button
+                className={`w-100 my-4 ${loading ? "loading" : ""}`}
+                variant="dark"
+                onClick={() => onAddToCart()}
+              >
                 Add to Cart
               </Button>
               <h4 className={anim(3)}>About</h4>
