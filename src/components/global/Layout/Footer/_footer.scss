@@ -1,0 +1,173 @@
+footer {
+    .nav-link {
+        display: inline-block;
+        @extend .hover-underline;
+    }
+}
+
+// ==========================================================================
+// Footer Main
+// ==========================================================================
+
+.footer-main {
+    @include media-breakpoint-down(md) {
+        .col-footer {
+            margin-bottom: 2.5rem;
+        }
+        .col-footer:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Footer Col Components
+.footer-about {
+    img {
+        width: 100px;
+        margin-bottom: 1rem;
+    }
+    p {
+        margin-bottom: 1rem;
+    }
+}
+
+.footer-menu {
+    .nav-link {
+        color: var(--body-color);
+        @include media-breakpoint-down(sm) {
+            font-size: 1rem !important;
+        }
+    }
+}
+.footer-contact {
+    a {
+        margin-bottom: 0.5rem;
+        font-weight: var(--font-weight-bold);
+        color: var(--body-color);
+        display: inline-block;
+    }
+}
+
+// ==========================================================================
+// Footer Header
+// ==========================================================================
+
+.footer-header {
+    background: var(--gray-900);
+    .row-payment {
+        background: var(--gray-900);
+        color: var(--white);
+        .payment-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-300);
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            @include media-breakpoint-down(sm) {
+                justify-content: flex-start;
+                border-bottom: 0;
+            }
+            .title {
+                margin-bottom: 0;
+                margin-right: 1rem;
+                text-transform: uppercase;
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
+            .payment-list {
+                padding-left: 0;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0;
+            }
+        }
+        .social-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-bottom: 1px solid var(--gray-300);
+            @include media-breakpoint-down(sm) {
+                justify-content: flex-start;
+                padding-bottom: 1.5rem;
+            }
+            .title {
+                margin-bottom: 0;
+                margin-right: 1.5rem;
+                text-transform: uppercase;
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
+            }
+            .social-list {
+                padding-left: 0;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0;
+                gap: 1.5rem;
+                .social-item {
+                    color: var(--white);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .icb {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ==========================================================================
+// Footer Bottom
+// ==========================================================================
+
+.footer-bottom {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background: var(--gray-900);
+    color: var(--white);
+    .col-copyright {
+        font-family: var(--font-default-serif);
+        font-size: 0.75rem;
+        .site {
+            color: rgba(var(--white), 0.8);
+            text-transform: uppercase;
+        }
+        a {
+            @extend .text-white;
+        }
+        @include media-breakpoint-down(sm) {
+            order: 2;
+        }
+    }
+    .col-menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1.5rem;
+        @include media-breakpoint-down(sm) {
+            order: 1;
+            justify-content: flex-start;
+        }
+        .menu-item {
+            @extend .hover-underline;
+            @extend .text-white;
+            font-size: 1rem;
+            line-height: 20px;
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            @include media-breakpoint-down(sm) {
+                width: 100%;
+            }
+        }
+    }
+}

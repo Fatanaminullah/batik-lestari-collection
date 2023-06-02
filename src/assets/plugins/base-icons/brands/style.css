@@ -1,0 +1,134 @@
+@font-face {
+  font-family: "Base Icons Brands";
+  src: url("fonts/icomoon.eot?9o5qtk");
+  src: url("fonts/icomoon.eot?9o5qtk#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?9o5qtk") format("truetype"),
+    url("fonts/icomoon.woff?9o5qtk") format("woff"),
+    url("fonts/icomoon.svg?9o5qtk#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icb"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "Base Icons Brands" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-opensea:before {
+  content: "\e923";
+}
+.ic-medium:before {
+  content: "\e921";
+}
+.ic-medium-m:before {
+  content: "\e922";
+}
+.ic-discord:before {
+  content: "\e920";
+}
+.ic-tiktok:before {
+  content: "\e91f";
+}
+.ic-android:before {
+  content: "\e900";
+}
+.ic-app-store:before {
+  content: "\e901";
+}
+.ic-app-store-ios:before {
+  content: "\e902";
+}
+.ic-apple:before {
+  content: "\e903";
+}
+.ic-apple-pay:before {
+  content: "\e904";
+}
+.ic-btc:before {
+  content: "\e905";
+}
+.ic-cc-mastercard:before {
+  content: "\e906";
+}
+.ic-cc-paypal:before {
+  content: "\e907";
+}
+.ic-cc-visa:before {
+  content: "\e908";
+}
+.ic-facebook:before {
+  content: "\e909";
+}
+.ic-facebook-f:before {
+  content: "\e90a";
+}
+.ic-facebook-messenger:before {
+  content: "\e90b";
+}
+.ic-facebook-square:before {
+  content: "\e90c";
+}
+.ic-google:before {
+  content: "\e90d";
+}
+.ic-google-play:before {
+  content: "\e90e";
+}
+.ic-instagram:before {
+  content: "\e90f";
+}
+.ic-instagram-square:before {
+  content: "\e910";
+}
+.ic-line:before {
+  content: "\e911";
+}
+.ic-linkedin:before {
+  content: "\e912";
+}
+.ic-linkedin-in:before {
+  content: "\e913";
+}
+.ic-paypal:before {
+  content: "\e914";
+}
+.ic-pinterest:before {
+  content: "\e915";
+}
+.ic-pinterest-p:before {
+  content: "\e916";
+}
+.ic-pinterest-square:before {
+  content: "\e917";
+}
+.ic-twitter:before {
+  content: "\e918";
+}
+.ic-twitter-square:before {
+  content: "\e919";
+}
+.ic-unsplash:before {
+  content: "\e91a";
+}
+.ic-whatsapp:before {
+  content: "\e91b";
+}
+.ic-whatsapp-square:before {
+  content: "\e91c";
+}
+.ic-youtube:before {
+  content: "\e91d";
+}
+.ic-youtube-square:before {
+  content: "\e91e";
+}

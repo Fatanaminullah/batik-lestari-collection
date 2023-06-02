@@ -1,0 +1,23 @@
+// Font-face mixins
+// Version 1.0.0
+//
+// Custom mixins for font-face
+
+// Font-face
+// e.g. @include font-face('gotham', '/fonts/gotham');
+$dir-fonts: "../../../assets/fonts"; // Antikode
+
+@mixin font-face($font-name, $file-name, $font-weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url("#{$dir-fonts}/#{$file-name}" + ".eot");
+    src: url("#{$dir-fonts}/#{$file-name}" + ".eot?#iefix")
+        format("embedded-opentype"),
+      url("#{$dir-fonts}/#{$file-name}" + ".woff") format("woff"),
+      url("#{$dir-fonts}/#{$file-name}" + ".ttf") format("truetype"),
+      url("#{$dir-fonts}/#{$file-name}" + ".svg##{$font-name}") format("svg");
+    font-weight: $font-weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}

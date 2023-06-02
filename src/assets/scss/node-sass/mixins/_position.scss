@@ -1,0 +1,19 @@
+// Position mixins
+// Version 1.0.0
+//
+// Custom mixins for position
+
+// Shorthandizes position declarations
+//
+// .example {
+//   position: absolute;
+//   left: 10px;
+//   top: 10px;
+// }
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}

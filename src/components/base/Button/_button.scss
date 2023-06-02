@@ -1,0 +1,170 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .buttons-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Buttons
+// ========================================================================================================================================
+
+button {
+  &:disabled {
+    cursor: default !important;
+  }
+}
+
+.btn {
+  position: relative;
+  text-transform: $btn-text-transform;
+  letter-spacing: $btn-letter-spacing;
+
+  .el-loader {
+    display: none;
+  }
+  &.loading,
+  &.success {
+    span,
+    &:after,
+    &:before {
+      visibility: hidden;
+    }
+    .el-loader {
+      display: block;
+
+      &:before,
+      &:after {
+        height: 1rem;
+        width: 1rem;
+        line-height: 1rem;
+        top: 50%;
+        margin-top: -0.5rem;
+        left: 50%;
+        margin-left: -0.5rem;
+        position: absolute;
+        font-style: normal;
+      }
+    }
+  }
+  &.loading {
+    pointer-events: none;
+    .el-loader {
+      animation: fadeIn 0.2s linear;
+      &:before {
+        font-family: "Base Icons Regular";
+        content: varIcon($ic-circle);
+        opacity: 0.4;
+        z-index: 1;
+        font-size: 1rem;
+      }
+      &:after {
+        font-family: "Base Icons Regular";
+        content: varIcon($ic-spinner-third);
+        animation: spin 2s infinite linear;
+        z-index: 2;
+        font-size: 1rem;
+      }
+    }
+  }
+  &.success {
+    pointer-events: none;
+    .el-loader {
+      &:after {
+        font-family: "Base Icons Regular";
+        content: varIcon($ic-check);
+        animation: flash 1s linear;
+      }
+    }
+  }
+}
+
+// Button link
+.btn-link {
+  padding-left: 0;
+  padding-right: 0;
+  &:focus,
+  &:active {
+    box-shadow: none;
+  }
+}
+
+// Button Light / White
+.btn-light,
+.btn-white {
+  color: $primary;
+  @include hover-focus-active {
+    color: $primary;
+  }
+}
+
+// Button group
+// Set display block to make .text-* on parent element / its own element
+// affects the button children element
+.btn-group {
+  display: block;
+}
+
+.btn {
+  &.btn-ic-left {
+    padding-left: 2.5rem;
+  }
+  &.btn-ic-right {
+    padding-right: 2.5rem;
+  }
+  .el-ic-before {
+    &:before {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1rem;
+      position: absolute;
+    }
+  }
+  .el-ic-after {
+    &:before {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 1rem;
+      position: absolute;
+    }
+  }
+  &.btn-link {
+    .el-ic-before {
+      &:before {
+        left: 0;
+        transition: $transition-base;
+      }
+    }
+    .el-ic-after {
+      &:before {
+        right: 0;
+        transition: $transition-base;
+      }
+    }
+    &.btn-ic-left {
+      padding-left: 1rem;
+      &:before {
+        display: none;
+      }
+      &:hover {
+        .el-ic-before {
+          &:before {
+            left: -0.25rem;
+          }
+        }
+      }
+    }
+    &.btn-ic-right {
+      padding-right: 1rem;
+      &:before {
+        display: none;
+      }
+      &:hover {
+        .el-ic-after {
+          &:before {
+            right: -0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

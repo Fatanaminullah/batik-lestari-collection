@@ -1,0 +1,52 @@
+// ========================================================================================================================================
+// Buttons - Custom
+// ========================================================================================================================================
+
+// ==========================================================================
+// Hover Color
+// ==========================================================================
+
+// Set hover darken color (in %)
+$btn-hover-bg-darken-custom: $btn-hover-bg-darken; // EDIT THIS AS NEEDED (Default: 5%)
+
+.btn {
+  @each $color, $value in $theme-colors {
+    &.btn-outline-#{$color} {
+      @include hover-focus {
+        background-color: darken($value, $btn-hover-bg-darken-custom);
+        border-color: darken($value, $btn-hover-bg-darken-custom);
+      }
+    }
+    &.btn-#{$color} {
+      @include hover-focus {
+        background-color: darken($value, $btn-hover-bg-darken-custom);
+        border-color: darken($value, $btn-hover-border-darken);
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Hover Effect
+// ==========================================================================
+
+// Toggle hover block right effect for filled & outline buttons
+//
+// .btn:not(.btn-link) {
+//   @include hover-blockRight;
+// }
+
+// Toggle hover underline effect for link buttons
+//
+// .btn-link {
+//   @include hover-underline;
+//   &:before {
+//     bottom: 0.25rem; // underline effect position (default: 0)
+//   }
+// }
+
+// ==========================================================================
+// General
+// ==========================================================================
+
+// Add customs styles here

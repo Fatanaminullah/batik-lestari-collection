@@ -1,0 +1,103 @@
+// Grid utilities
+// Version 1.1.1
+//
+// Custom styles for grid utilities.
+
+// Prevent scrolling on body when given .no-scroll class
+html,
+body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+// Enable sticky on sm up
+html {
+  scroll-behavior: smooth;
+  &.enable-sticky {
+    body {
+      overflow-x: initial !important;
+    }
+  }
+  &.enable-sticky-md-up {
+    body {
+      @include media-breakpoint-up(md) {
+        overflow-x: initial !important;
+      }
+    }
+  }
+}
+
+// Custom container padding for SM down
+// Usually padding on mobile is a bit bigger
+.container,
+.container-fluid {
+  @include media-breakpoint-down(sm) {
+    padding-left: $container-padding-sm-down;
+    padding-right: $container-padding-sm-down;
+  }
+  @include media-breakpoint-up(md) {
+    padding-left: $container-padding-md-up;
+    padding-right: $container-padding-md-up;
+  }
+}
+
+// Row with zero gutter
+.row-0 {
+  margin-left: 0;
+  margin-right: 0;
+  > .col {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @for $i from 1 through 12 {
+      > .col-#{$i},
+      > .col-#{$breakpoint}-#{$i} {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+@mixin make-custom-row-gutter($size, $length) {
+  @if $size != 0 {
+    .row-#{$size} {
+      margin-left: -#{$length};
+      margin-right: -#{$length};
+      > .col {
+        padding-right: #{$length};
+        padding-left: #{$length};
+      }
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @for $i from 1 through 12 {
+          > .col-#{$i},
+          > .col-#{$breakpoint}-#{$i} {
+            padding-right: #{$length};
+            padding-left: #{$length};
+          }
+        }
+      }
+    }
+  }
+}
+
+// Custom row gutter in px
+// e.g. .row-10px, .row-20px, until .row-100px
+@each $size, $length in $spacers-px {
+  @include make-custom-row-gutter($size, $length);
+}
+
+// Custom row gutter in $spacer that translates to rem (see variables for ref.)
+// e.g. .row-1 (0.5rem), .row-2 (1rem), until .row-6)
+@each $size, $length in $spacers {
+  @include make-custom-row-gutter($size, $length);
+}
+
+// Nullify Container
+.container-null {
+  margin-left: -$container-padding;
+  margin-right: -$container-padding;
+  width: calc(100% + #{$container-padding} + #{$container-padding});
+}

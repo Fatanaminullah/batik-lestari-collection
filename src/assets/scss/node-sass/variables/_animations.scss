@@ -1,0 +1,10 @@
+// Base animation variable
+$anim-duration: 1s;
+
+// Reveal variables
+$reveal-anim-duration: 1s;
+$reveal-img-anim-duration: $reveal-anim-duration * 1.5;
+$reveal-img-anim-delay: $reveal-anim-duration / 4;
+$reveal-ease: ease(in-out-quart);
+
+$reveal-block-bg: $dark;

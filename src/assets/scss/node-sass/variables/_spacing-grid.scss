@@ -1,0 +1,140 @@
+// Spacing
+// Version 2.0.0
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 1rem;
+$spacers: (
+  6: ($spacer * 6) // Antikode
+);
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3),
+  ),
+  $spacers
+);
+
+$spacer-px: 10px !default; // Antikode
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers-px: (
+  0: 0, 
+  10px: ($spacer-px * .5), 
+  20px: ($spacer-px * 1), 
+  30px: ($spacer-px * 1.5), 
+  40px: ($spacer-px * 2), 
+  50px: ($spacer-px * 2.5), 
+  60px: ($spacer-px * 3), 
+  70px: ($spacer-px * 3.5), 
+  80px: ($spacer-px * 4), 
+  90px: ($spacer-px * 4.5), 
+  100px: ($spacer-px * 5), 
+) !default; // Antikode
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto
+  ),
+  $sizes
+);
+
+$size-px: 50px !default; // Antikode
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes-px: (
+  50px: ($size-px * 1),
+  100px: ($size-px * 2),
+  150px: ($size-px * 3),
+  200px: ($size-px * 4),
+  250px: ($size-px * 5),
+  300px: ($size-px * 6),
+  350px: ($size-px * 7),
+  400px: ($size-px * 8),
+  450px: ($size-px * 9),
+  500px: ($size-px * 10),
+  550px: ($size-px * 11),
+  600px: ($size-px * 12),
+  650px: ($size-px * 13),
+  700px: ($size-px * 14),
+  750px: ($size-px * 15),
+  800px: ($size-px * 16),
+  850px: ($size-px * 17),
+  900px: ($size-px * 18),
+  950px: ($size-px * 19),
+  1000px: ($size-px * 20)
+) !default; // Antikode
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xxs: 0, // Antikode (default: xs: 0)
+  xs: 360px, // Antikode (breakpoint for iPhone 6/7/8 width)
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px, // Antikode
+);
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+// Media breakpoints up pairings
+//
+// Define the pairings on media breakpoints
+// e.g. media-breakpoint-up(md) is paired with media-breakpoint-down(sm), and so on.
+// Normally used on .navbar-expand-* logic
+$grid-breakpoints-pairs: (
+  sm: xs, 
+  md: sm, 
+  lg: md,
+  xl: lg,
+  xxl: xl,
+  xxxl: xxxl // Antikode
+);
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px, // Antikode
+);
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+// Grid settings for row
+$grid-columns:                12;
+$grid-gutter-width:           1.25rem; // Antikode (default: 30px)
+$grid-row-columns:            6;
+
+// Grid settings for container
+$container-padding:           1.25rem !default; // Antikode (default: 15px)
+$container-padding-md-up:     1.25rem !default; // Antikode (default: 15px)
+$container-padding-sm-down:   1.25rem !default; // Antikode (default: 15px)

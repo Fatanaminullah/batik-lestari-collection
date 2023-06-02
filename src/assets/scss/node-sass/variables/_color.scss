@@ -1,0 +1,239 @@
+// Color system
+// Version 2.0.2
+
+/* Normal Gray */
+$white:    #ffffff !default; // Antikode
+$gray-10:  #fcfcfc !default; // Antikode
+$gray-20:  #fafafa !default; // Antikode
+$gray-50:  #f2f2f2 !default; // Antikode
+$gray-70:  #f9f9f9 !default; // Antikode
+$gray-100: #e5e5e5 !default; // Antikode
+$gray-200: #cccccc !default; // Antikode
+$gray-300: #b3b3b3 !default; // Antikode
+$gray-400: #999999 !default; // Antikode
+$gray-500: #808080 !default; // Antikode
+$gray-600: #666666 !default; // Antikode
+$gray-700: #4d4d4d !default; // Antikode
+$gray-800: #333333 !default; // Antikode - $body-color
+$gray-900: #191919 !default; // Antikode
+$black:    #000000 !default;
+/* End Of Normal Gray */
+
+/* Normal Dark */
+$dark-100: #1A1A1A !default;
+/* End Of Normal Dark */
+
+/* Slate Gray */
+// $white:    #fff;
+// $gray-10:  #fcfcfc !default; // Antikode
+// $gray-20:  #fafafa !default; // Antikode
+// $gray-50:  #f1f3f4 !default; // Antikode
+// $gray-70:  #e2e6e9 !default; // Antikode
+// $gray-100: #e9ecee !default; // Antikode
+// $gray-200: #c8ced5 !default; // Antikode
+// $gray-300: #b2bbc3 !default; // Antikode
+// $gray-400: #9ca7b2 !default; // Antikode
+// $gray-500: #7b8a99 !default; // Antikode
+// $gray-600: #677685 !default; // Antikode
+// $gray-700: #4e5964 !default; // Antikode
+// $gray-800: #343b43 !default; // Antikode - $body-color
+// $gray-900: #1a1e22 !default; // Antikode
+// $black:    #000001 !default;
+/* End Of Slate Gray */
+
+/* Group Grays */
+$grays: (
+  "10": $gray-10, // Antikode
+  "20": $gray-20, // Antikode
+  "50": $gray-50, // Antikode
+  "70": $gray-70, // Antikode,
+);
+/* End Of Group Grays */
+
+/* Group Darks */
+$darks: (
+  "100": $dark-100, // Antikode
+);
+/* End Of Group Darks */
+
+// stylelint-disable-next-line scss/dollar-variable-default
+/* Map Group Grays */
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900,
+  ),
+  $grays
+);
+/* End Of Map Group Grays */
+
+
+/* Main Colors */
+$blue:      #007bff !default;
+$indigo:    #6610f2 !default;
+$purple:    #6f42c1 !default;
+$pink:      #e83e8c !default;
+$red:       #dc3545 !default;
+$orange:    #fd7e14 !default;
+$yellow:    #ffc107 !default; 
+$green:     #28a745 !default;
+$teal:      #20c997 !default;
+$cyan:      #17a2b8 !default;
+$golden:    #cba67d !default; // Antikode
+$darkblue:  #0C2E3D !default; // Atoms
+$policeblue:#265366 !default; // Atoms
+/* End Of Main Colors */
+
+/* Brand Colors */
+$purple-instagram:#dd2a7b !default; // Antikode
+$blue-twitter:    #00acee !default; // Antikode
+$blue-facebook:   #1877f2 !default; // Antikode
+$blue-linkedin:   #0077b5 !default; // Antikode
+$blue-opensea:    #2081e2 !default; // Antikode
+$red-youtube:     #e62117 !default; // Antikode
+$red-pinterest:   #E60023 !default; // Antikode
+$green-whatsapp:  #25D366 !default; // Antikode
+$green-medium:    #00ab6c !default; // Antikode
+$pink-tiktok:     #ee1d52 !default; // Antikode
+$purple-discord:  #7289da !default; // Antikode
+$red-email:       #e54e43 !default; // Antikode
+/* End Of Brand Colors */
+
+/* Group Brand Colors */
+$brand-colors: (
+  "instagram":  $purple-instagram, 
+  "twitter":    $blue-twitter,
+  "facebook":   $blue-facebook, 
+  "linkedin":   $blue-linkedin, 
+  "opensea":    $blue-opensea, 
+  "youtube":    $red-youtube,
+  "pinterest":  $red-pinterest,
+  "whatsapp":   $green-whatsapp,
+  "medium":     $green-medium,
+  "tiktok":     $pink-tiktok,
+  "discord":    $purple-discord,
+  "email":      $red-email,
+);
+/* End Of Group Brand Colors */
+
+/* Group Main Colors */
+$colors: (
+  "golden": $golden, // Antikode,
+  "darkblue": $darkblue,
+  "policeblue": $policeblue
+);
+/* End Of Group Main Colors */
+
+/* Map Main Colors */
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "blue":      $blue,
+    "indigo":    $indigo,
+    "purple":    $purple,
+    "pink":      $pink,
+    "red":       $red,
+    "orange":    $orange,
+    "yellow":    $yellow,
+    "green":     $green,
+    "teal":      $teal,
+    "cyan":      $cyan,
+    "white":     $white,
+    "gray":      $gray-600,
+    "gray-dark": $gray-800,
+  ),
+  $colors
+);
+/* End Of Map Main Colors */
+
+/* Assign Colors */
+$primary:     $darkblue; 
+$secondary:   $gray-500; // Antikode
+$success:     $green;
+$info:        $cyan;
+$warning:     $yellow;
+$danger:      $red;
+$light:       $gray-20; // Antikode
+$dark:        $gray-900; // Antikode
+/* End Of Assign Colors */
+
+/* Group Theme Colors */
+$theme-colors: (
+  "gray-10":  $gray-10, // Antikode
+  "gray-20":  $gray-20, // Antikode
+  "gray-50":  $gray-50, // Antikode
+  "gray-70":  $gray-70, // Antikode
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+  "black":    $black,
+  "white":    $white,
+);
+/* End Of Group Theme Colors */
+
+/* Map Group Theme Colors */
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":   $primary,
+    "secondary": $secondary,
+    "success":   $success,
+    "info":      $info,
+    "warning":   $warning,
+    "danger":    $danger,
+    "light":     $light,
+    "dark":      $dark,
+  ),
+  $theme-colors
+);
+/* End Of Map Group Theme Colors */
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8%;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900;
+$yiq-text-light: $white;
+
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (("<", "%3c"), (">", "%3e"), ("#", "%23"));
+
+// Body Color
+//
+// Settings for the `<body>` element.
+
+$body-bg: $white;
+$body-color: $gray-800; // Antikode
+$body-color-secondary: $gray-400; // Antikode
+
+// Links Color
+//
+// Style anchor elements.
+
+$link-color: theme-color("primary");
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: none; // Antikode
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15%;
+
+$btn-hover-bg-darken: 5%; // Antikode (default: 7.5%)
+$btn-hover-border-darken: $btn-hover-bg-darken; // Antikode (default: 10%)
+// $btn-hover-active-bg-darken: 10%; // Antikode
+// $btn-hover-active-border-darken: $btn-hover-active-bg-darken; // Antikode (default: 12.5%)

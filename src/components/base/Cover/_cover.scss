@@ -1,0 +1,280 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .cover-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Cover
+// ========================================================================================================================================
+
+// .cover-basic - Generic cover with title, description, and button
+// .cover-responsive - Cover that changes layout between mobile version & desktop version
+
+// ==========================================================================
+// Cover Basic
+// ==========================================================================
+
+.cover {
+  position: relative; // DO NOT add the height styling, use utilities class instead
+  .breadcrumb-wrapper {
+    position: absolute;
+    top: 1.5rem;
+    width: 100%;
+    z-index: 2;
+    .breadcrumb {
+      @extend .container;
+    }
+    + .cover-body {
+      top: 2rem;
+    }
+  }
+  .cover-bg-wrapper {
+    overflow: hidden;
+  }
+  .cover-bg {
+    overflow: hidden;
+    &.h-vh-100 {
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      // Use this to in pair with vh logic on layout.js to overcome mobile phone quirky 100vh behaviour due
+      // to the browser header & footer, can't be combined with another height utilities classes
+    }
+
+    img {
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+  .cover-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    .container {
+      position: relative;
+      display: flex;
+      height: 100%;
+      &.middle-left {
+        align-items: center;
+        justify-content: flex-start;
+      }
+      &.middle-center {
+        align-items: center;
+        justify-content: center;
+        .cover-content {
+          text-align: center;
+        }
+      }
+      &.middle-right {
+        align-items: center;
+        justify-content: flex-end;
+      }
+      &.bottom-left {
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding-bottom: 1.5rem;
+      }
+      &.bottom-center {
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 1.5rem;
+        .cover-content {
+          text-align: center;
+        }
+      }
+      &.bottom-right {
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding-bottom: 1.5rem;
+      }
+    }
+  }
+  .cover-content {
+    width: 100%;
+    z-index: 2;
+    .btn-group {
+      display: flex;
+      .overflow-hidden {
+        + .overflow-hidden {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+  .cover-title {
+    @include font-size($font-size-base * 3);
+    + .cover-text {
+      margin-top: 0.5rem;
+    }
+  }
+  .cover-text {
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  // Color theme
+  &.cover-light {
+    // prettier-ignore
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .cover-title { color: $body-color; }
+    // prettier-ignore
+    p, ul, li, .cover-text { color: rgba($body-color, 0.75); }
+  }
+  &.cover-dark {
+    // prettier-ignore
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .cover-title { color: $white; }
+    // prettier-ignore
+    p, ul, li, .cover-text { color: rgba($white, 0.75); }
+    .btn-link {
+      color: $white;
+      &.hover-underline:before {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Cover Responsive
+// ==========================================================================
+
+.cover-responsive {
+  @include media-breakpoint-down(sm) {
+    .cover-body {
+      position: relative;
+      padding: 1.25rem 0 2.5rem; // .py-main-sm & .py-main
+    }
+    .cover-bg {
+      position: relative;
+      .bg-overlay {
+        z-index: 1;
+      }
+    }
+    // Color theme
+    &.cover-light {
+      .bg-overlay {
+        // prettier-ignore
+        @include gradient-y-to-top(rgba($white, 1), rgba($white, 0), 0%, 33%);
+      }
+      .cover-body {
+        background-color: $white;
+      }
+    }
+    &.cover-dark {
+      .bg-overlay {
+        // prettier-ignore
+        @include gradient-y-to-top(rgba($black, 1), rgba($black, 0), 0%, 33%);
+      }
+      .cover-body {
+        background-color: $black;
+      }
+    }
+  }
+}
+
+// Cover Video
+.vid-pulse {
+  height: 50px;
+  width: 50px;
+  background: rgba($white, 0.75);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  top: 50%;
+  margin-top: -25px;
+  z-index: 2;
+  animation: shadow-pulse 1s infinite;
+  cursor: pointer;
+  .vid-play {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  // prettier-ignore
+  @keyframes shadow-pulse {
+    0% { box-shadow: 0 0 0 0 rgba($white, 1) }
+    100% { box-shadow: 0 0 0 0.75rem rgba($white, 0) }
+  }
+  @include media-breakpoint-up(md) {
+    height: 60px;
+    width: 60px;
+    margin-left: -30px;
+    top: 50%;
+    margin-top: -30px;
+    // prettier-ignore
+    @keyframes shadow-pulse {
+      0% { box-shadow: 0 0 0 0px rgba($white, 1) }
+      100% { box-shadow: 0 0 0 1.25rem rgba($white, 0) }
+    }
+  }
+  img {
+    height: 20px;
+    width: 20px;
+    @include media-breakpoint-up(md) {
+      height: 25px;
+      width: 25px;
+    }
+    @include media-breakpoint-up(lg) {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+// ==========================================================================
+// Scroll Hint
+// ==========================================================================
+
+.scroll-hint {
+  position: absolute;
+  display: block;
+  height: 75px;
+  width: 200px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 25px;
+  z-index: 2;
+  cursor: pointer;
+  img {
+    position: absolute;
+    width: 50px;
+    margin-left: -25px;
+    left: 50%;
+    bottom: 0;
+    display: inline-block;
+    animation: arrowDownInfinite 1s linear;
+    animation-iteration-count: infinite;
+  }
+  &.w-text {
+    p {
+      text-align: center;
+      display: block;
+      font-size: $small-font-size;
+      color: rgba($white, 0.5);
+      margin-top: 55px;
+      margin-bottom: 0;
+      @include transition($transition-base);
+    }
+    &:hover {
+      p {
+        color: rgba($white, 0.75);
+      }
+    }
+  }
+}
+// prettier-ignore
+@keyframes arrowDownInfinite {
+  0% { opacity: 1; bottom: 48px; }
+  50% { opacity: 0; bottom: 24px; }
+  90% { opacity: 0; bottom: 48px; }
+  100% { opacity: 1; bottom: 48px; }
+}

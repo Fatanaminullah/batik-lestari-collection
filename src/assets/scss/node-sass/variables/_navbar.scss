@@ -1,0 +1,46 @@
+//
+// Navbar settings
+//
+
+// IF NO NAVBAR EXPAND USED (no responsive navbar), do the following:
+// 1. In variables/navbar.scss, set $navbar-top-height-mobile & $navbar-top-height-desktop to 0
+// 2. In variables/navbar.scss, set $navbar-main-height-mobile & $nabvar-main-height-desktop to the same height
+// 3. In variables/navbar.scss, set $navbar-expand-up to ""
+// 4. In navbar.js, et const navbarExpand to ""
+
+$navbar-top-height-mobile: 0; // Set this to 0 if navbar top is not required
+$navbar-top-height-desktop: 48px; // Set this to 0 if navbar top is not required
+
+$navbar-main-height-mobile: 64px; // Height on mobile
+$navbar-main-height-desktop: 72px; // Height on desktop
+
+$navbar-height-mobile: $navbar-top-height-mobile + $navbar-main-height-mobile;
+$navbar-height-desktop: $navbar-top-height-desktop + $navbar-main-height-desktop;
+
+// Depending on the .navbar-expand-* used, enter the pairings below to manage responsive styling easier
+// e.g. .navbar-expand-md pairings = sm, xs
+// e.g. .navbar-expand-md pairings = md, sm
+// e.g. .navbar-expand-lg pairings = lg, md
+// e.g. .navbar-expand-xl pairings = xl, lg
+// e.g. .navbar-expand-xxl pairings = xxl, xl
+// e.g. no navbar expand used = ""
+$navbar-expand-up: "lg"; // Specify the navbar expand used
+
+// prettier-ignore
+$navbar-expand-down: map-get($grid-breakpoints-pairs, $navbar-expand-up); // Specify the navbar expand used
+
+//
+// Mobile menu duration
+//
+
+$mobile-menu-duration: 1s;
+$mobile-menu-delay: strip-unit($mobile-menu-duration / 2);
+$mobile-menu-anim-count: 6; // Enter number of anim on mobile menu
+$mobile-menu-ease: ease(in-out-quart);
+
+//
+// Search menu duration
+//
+
+$search-menu-duration: 1s;
+$form-search-close-duration: 0.5s;

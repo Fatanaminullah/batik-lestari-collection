@@ -1,0 +1,17 @@
+// Buttons utilities
+// Version 1.0.0
+//
+// Custom styles for buttons utilities
+
+// Create responsive classes for buttons
+// .btn-block by default, but margin: auto, and max-width: $size-px on md up
+// e.g. .btn-x-auto-50px, .btn-x-auto-100px, .btn-x-auto-150px, until 500px
+@each $size, $length in $sizes-px {
+  .btn-x-auto-#{$size} {
+    @extend .btn-block;
+    @include media-breakpoint-up(md) {
+      margin: auto;
+      width: $length;
+    }
+  }
+}

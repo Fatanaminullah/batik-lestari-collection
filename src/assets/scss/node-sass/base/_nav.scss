@@ -1,0 +1,21 @@
+// Nav base
+// Version 1.0.0
+//
+// Custom base classes for nav.
+
+// Add pointer cursor for all .nav-link (including not non <a> element)
+.nav-link {
+  transition: $transition-base;
+  cursor: pointer;
+}
+
+button {
+  &.nav-icon,
+  &.nav-link {
+    background-color: transparent;
+    border: none;
+    &:disabled {
+      cursor: auto;
+    }
+  }
+}

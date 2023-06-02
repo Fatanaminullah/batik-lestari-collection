@@ -1,0 +1,52 @@
+// Border, Box Shadow, Modal
+// Version 2.0.0
+
+
+// Border
+//
+// Border & border radius
+
+$border-width:                1px;
+$border-color:                $gray-100; // Antikode
+
+$border-radius:               .5rem; // Antikode
+$border-radius-lg:            .5rem; // Antikode
+$border-radius-sm:            .5rem; // Antikode
+
+// Box Shadow
+
+$box-shadow-sm:               0 .25rem .5rem rgba($black, .075); // Antikode
+$box-shadow:                  0 .5rem 1rem rgba($black, .15);
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175);
+
+$box-shadow-primary-sm:       0 .25rem .5rem rgba($primary, .075) !default; // Antikode
+$box-shadow-primary:          0 .5rem 1rem rgba($primary, .15) !default; // Antikode
+$box-shadow-primary-lg:       0 1rem 3rem rgba($primary, .175) !default; // Antikode
+
+$component-active-color:      $white;
+$component-active-bg:         theme-color("primary");
+
+$caret-width:                 .3em;
+$caret-vertical-align:        $caret-width * .85;
+$caret-spacing:               $caret-width * .85;
+
+// Modal
+
+$modal-xl:                          1140px;
+$modal-lg:                          800px;
+$modal-md:                          500px;
+$modal-sm:                          400px; // Antikode
+
+
+// Z Index
+
+$zindex-dropdown:                   1000;
+$zindex-sticky:                     1020;
+$zindex-fixed:                      1030;
+$zindex-modal-backdrop:             1040;
+$zindex-modal:                      1050;
+$zindex-popover:                    1060;
+$zindex-tooltip:                    1070;
+$zindex-top-1:                      1080; // Antikode
+$zindex-top-2:                      1090; // Antikode
+$zindex-top-3:                      1100; // Antikode

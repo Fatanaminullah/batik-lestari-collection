@@ -1,0 +1,122 @@
+// Forms base
+// Version 1.0.0
+//
+// Custom styles for forms base.
+
+// Custom forms
+.custom-select {
+  transition: $input-transition;
+  -webkit-appearance: none;
+}
+.custom-file-input {
+  transition: $input-transition;
+}
+// Override success validation color (initially "success" color)
+.was-validated .custom-control-input:invalid ~ .custom-control-label,
+.custom-control-input.is-invalid ~ .custom-control-label {
+  color: $body-color;
+}
+.was-validated .custom-control-input:valid ~ .custom-control-label::before,
+.custom-control-input.is-valid ~ .custom-control-label::before {
+  background: $custom-control-indicator-bg;
+}
+.was-validated
+  .custom-control-input:valid:checked
+  ~ .custom-control-label::before,
+.custom-control-input.is-valid:checked ~ .custom-control-label::before {
+  background: $component-active-bg;
+}
+.was-validated .form-control:valid,
+.form-control.is-valid,
+.was-validated .custom-select:valid,
+.custom-select.is-valid {
+  border-color: $input-border-color;
+}
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus,
+.was-validated .custom-select:valid:focus,
+.custom-select.is-valid:focus {
+  border-color: $input-focus-border-color;
+  box-shadow: 0 0 0 $input-btn-focus-width $input-btn-focus-color;
+}
+.custom-checkbox {
+  padding-left: 1.75rem;
+  .custom-control-label {
+    font-weight: $font-weight-normal;
+    &::before,
+    &::after {
+      left: -1.75rem;
+    }
+  }
+}
+
+// Custom styling for form control
+.form-control-underline {
+  background: transparent;
+  border-radius: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  padding-left: 0;
+  @include hover-focus-active {
+    background: transparent;
+  }
+}
+
+// Checkbox (Box Style)
+.checkbox-box {
+  display: inline-block;
+  padding-left: 0;
+  width: 2.5rem;
+  min-height: 2rem;
+  position: relative;
+
+  .custom-control-label {
+    line-height: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .custom-control-label::before {
+    top: 0;
+    width: 2.5rem;
+    height: 2rem;
+    z-index: -1;
+  }
+
+  .custom-control-label::after {
+    display: none;
+  }
+}
+
+// Input group
+.input-group-icon {
+  .form-control,
+  .custom-select,
+  .custom-file {
+    border-right-color: transparent;
+  }
+
+  .input-group-text {
+    background: transparent;
+    border-left: none;
+  }
+}
+
+input[name="email"] {
+  text-transform: lowercase !important;
+  &::placeholder {
+    text-transform: none !important;
+  }
+}
+
+$type: firstname lastname name;
+@each $i in $type {
+  input[name="#{$i}"] {
+    text-transform: capitalize !important;
+
+    &::placeholder {
+      text-transform: none !important;
+    }
+  }
+}

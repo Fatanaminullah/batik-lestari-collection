@@ -1,0 +1,70 @@
+// Background SCSS
+// Version 1.0.0
+//
+// Styles for base background
+
+// Make elements within .bg-dark have light color
+.bg-dark,
+.dark {
+  color: $white;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+  p,
+  ul,
+  li {
+    color: rgba($white, 0.75);
+  }
+  .btn-link {
+    color: $white;
+    &.hover-underline:before {
+      background-color: $white;
+    }
+  }
+  // For card component
+  .card-boxless {
+    .card-body {
+      .card-title {
+        color: $white;
+      }
+      .card-text {
+        color: rgba($white, 0.75);
+      }
+    }
+  }
+  .card-basic {
+    .card-body {
+      .card-title,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $body-color;
+      }
+      .card-text,
+      p,
+      ul,
+      li {
+        color: rgba($body-color, 0.75);
+      }
+    }
+  }
+  // For feature component
+  .feature {
+    .feature-body {
+      .feature-title {
+        color: $white;
+      }
+      .feature-text {
+        color: rgba($white, 0.75);
+      }
+    }
+  }
+}

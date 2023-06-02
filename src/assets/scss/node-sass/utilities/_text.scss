@@ -1,0 +1,21 @@
+// Text utilities
+// Version 1.0.0
+//
+// Custom styles for text utilities.
+
+// Custom text style
+.text-uppercase-spaced {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.text-underline {
+  text-decoration: underline;
+}
+
+// Text truncate multiline
+.text-truncate-twoline {
+  @include text-truncate-multiline(2);
+}
+.text-truncate-threeline {
+  @include text-truncate-multiline(3);
+}

@@ -1,0 +1,36 @@
+// Background utilities
+// Version 1.0.1
+//
+// Custom styles for background utilities
+
+// Background overlay
+// e.g. .bg-overlay.bg-overlay-10, 20, 30, until 90 (% of gradient opacity)
+// e.g. Only need to put inside element with relative position with <div className="bg-overlay bg-overlay-10"></div>
+.bg-overlay {
+  @include position(absolute, 0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  @for $i from 1 through 9 {
+    &.bg-overlay-#{$i}0 {
+      @include gradient-y(
+        rgba($black, ($i / 10)),
+        rgba($black, ($i / 10)),
+        0%,
+        100%
+      );
+    }
+  }
+  &.bg-overlay-bottom {
+    @include gradient-y-to-top(rgba($black, 0.75), rgba($black, 0), 0%, 50%);
+  }
+  &.bg-overlay-bottom-content-wrapper {
+    top: auto;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, $black 63.27%);
+    height: 70%;
+
+    @include media-breakpoint-up(md) {
+      height: 50%;
+    }
+  }
+}

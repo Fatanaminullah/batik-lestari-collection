@@ -1,0 +1,44 @@
+.navbar {
+    background: $gray-900;
+    position: relative;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    height: 100px;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .navbar-left {
+            .navbar-menu {
+                list-style: none;
+                display: flex;
+                padding-left: 0;
+                margin-bottom: 0;
+                .navbar-menu__item {
+                    margin-right: 0.5rem;
+                    a {
+                        @extend .hover-underline;
+                        @extend .text-white;
+                    }
+                }
+            }
+        }
+        .navbar-brand {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50px;
+        }
+        .navbar-right {
+            .btn-cart {
+                cursor: pointer;
+                i {
+                    font-size: 1.5rem;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

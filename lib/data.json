@@ -1,0 +1,18 @@
+{
+  "page": "home",
+  "sections": [
+    {
+      "name": "carousel",
+      "property": {
+        "data": [
+          {
+            "title": "Going above and beyond the norm.",
+            "label": "",
+            "text": ""
+          }
+        ],
+        "variant": "middle-center"
+      }
+    }
+  ]
+}

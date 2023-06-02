@@ -1,0 +1,17 @@
+// ========================================================================================================================================
+// Card - Custom
+// ========================================================================================================================================
+
+// // Turn on styles below for default zoom in effect on card with link
+// a.card {
+//   @extend .hover-zoomIn;
+// }
+
+.card {
+  border-color: $gray-100; // Default: $gray-100
+  // prettier-ignore
+  @include box-shadow($box-shadow); // Show box shadow if $enable-shadows is enabled
+  &:not(.card-boxless).card-body {
+    padding: 1.5rem;
+  }
+}

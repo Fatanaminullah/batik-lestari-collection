@@ -1,0 +1,77 @@
+// DataTable overrider
+//
+// Custom styles for DataTable.
+
+.table-no-header {
+  .dataTables_filter,
+  .dataTables_length {
+    display: none;
+  }
+}
+.table-no-footer {
+  .dataTables_info,
+  .dataTables_paginate {
+    display: none;
+  }
+}
+.dataTable {
+  border-bottom: 1px solid $gray-100;
+  thead {
+    > tr {
+      > th {
+        font-weight: $font-weight-normal;
+        font-size: $font-size-sm;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $body-color-secondary;
+        border-bottom: 1px solid $gray-100;
+
+        &:focus,
+        &:active,
+        &:hover {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+.dataTables_wrapper {
+  @include media-breakpoint-down(sm) {
+    .row:first-child {
+      .col-sm-12 {
+        width: 50% !important;
+      }
+    }
+  }
+  .dataTables_length {
+    @include media-breakpoint-down(sm) {
+      text-align: left !important;
+    }
+    select {
+      margin: 0 0.25rem;
+    }
+  }
+  .dataTables_filter {
+    @include media-breakpoint-down(sm) {
+      text-align: right !important;
+    }
+  }
+  .dataTables_info {
+    font-size: $font-size-sm;
+    color: $body-color-secondary;
+    margin-left: 0.75rem;
+  }
+}
+.page-item {
+  .page-link {
+    border: none;
+    font-size: $font-size-sm;
+  }
+  &.active {
+    .page-link {
+      background-color: transparent;
+      color: $primary;
+      border-bottom: 2px solid $primary;
+    }
+  }
+}

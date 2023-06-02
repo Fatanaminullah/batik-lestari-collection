@@ -1,0 +1,60 @@
+// Table base
+// Version 1.0.0
+//
+// Custom styles for table base.
+
+.table-responsive {
+  @include media-breakpoint-down(xs) {
+    width: calc(100% + 1rem);
+  }
+}
+.table {
+  th,
+  td {
+    border-top: 1px solid $gray-100;
+    vertical-align: middle;
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-sm;
+    }
+    a {
+      color: $body-color;
+      font-weight: $font-weight-bold;
+      @include hover-focus-active {
+        color: $primary;
+      }
+    }
+  }
+}
+.table-form {
+  .table {
+    th,
+    td {
+      padding: 0.75rem 0.375rem;
+    }
+    .btn-placeholder-add-del {
+      width: 100%;
+      .btn {
+        width: calc(50% - 0.25rem);
+        float: left;
+        padding: 0;
+        height: 42px;
+        &:first-child {
+          margin-right: 0.25rem;
+        }
+      }
+    }
+  }
+}
+.td-link {
+  cursor: pointer;
+  transition: $transition-base;
+  span {
+    transition: $transition-base;
+  }
+  @include hover-focus-active {
+    background: $gray-20;
+    span {
+      border-bottom: 1px dotted $body-color;
+    }
+  }
+}

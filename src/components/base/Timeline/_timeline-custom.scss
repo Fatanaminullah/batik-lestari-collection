@@ -1,0 +1,25 @@
+// ========================================================================================================================================
+// Timeline
+// ========================================================================================================================================
+
+// Color Theme
+.timeline {
+  &.timeline-dark {
+    .timeline-line {
+      background: $white;
+      &:before,
+      &:after {
+        background: rgba($white, 0.5);
+      }
+    }
+  }
+  &.timeline-light {
+    .timeline-line {
+      background: $body-color;
+      &:before,
+      &:after {
+        background: rgba($body-color, 0.5);
+      }
+    }
+  }
+}

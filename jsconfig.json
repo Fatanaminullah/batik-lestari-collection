@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@components": ["src/components"],
+      "@base/*": ["src/components/base/*"],
+      "@base": ["src/components/base"],
+      "@public/*": ["public/*"],
+      "@public": ["public"]
+    },
+    "allowJs": true,
+    "jsx": "react-jsx",
+  }
+}

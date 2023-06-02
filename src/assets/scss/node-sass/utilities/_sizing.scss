@@ -1,0 +1,452 @@
+// Sizing utilities
+// Version 1.1.1
+//
+// Custom styles for sizing utilities.
+
+// Height & width responsive utilities
+//
+// In ratio: e.g. .h-ratio-1-1, .h-md-ratio-2-1, .h-lg-ratio-3-2, etc. (need ratio utilities)
+// Sizes in px: e.g. .h-100px, h-sm-200px, .w-300px, .w-sm-400px, until xl & 1000px
+// Sizes in %: e.g. .h-25, h-sm-50, .w-25, .w-sm-50, until xl & 100
+// Sizes in vh / vw: e.g. .h-vh-25, w-vw-50, .h-sm-vh-25, .w-sm-vw-50, until xl & 100
+$ratios: "1-1", "1-2", "2-1", "2-3", "3-2", "3-4", "4-3", "4-5", "5-4", "16-9",
+  "9-16";
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $abbrev in (height: h) {
+      @each $ratio in $ratios {
+        .#{$abbrev}#{$infix}-ratio-#{$ratio} {
+          #{$prop}: auto !important;
+          .img-ratio {
+            display: none !important;
+          }
+          .img-ratio-#{$ratio} {
+            display: block !important;
+          }
+        }
+      }
+    }
+    @each $prop, $abbrev in (height: h, width: w) {
+      @each $size, $length in $sizes-px {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+          @if #{$abbrev} == h {
+            .img-ratio {
+              display: none !important;
+            }
+          }
+        }
+      }
+      @each $size, $length in $sizes {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+          @if #{$abbrev} == h {
+            .img-ratio {
+              display: none !important;
+            }
+          }
+        }
+        @if #{$length} != auto {
+          .#{$abbrev}#{$infix}-v#{$abbrev}-#{$size} {
+            #{$prop}: #{$size}v#{$abbrev} !important;
+            @if #{$abbrev} == h {
+              .img-ratio {
+                display: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Height & width responsive utilities (breakpoint down)
+//
+// In ratio: e.g. .h-sm-down-ratio-1-1, .h-md-down-ratio-2-1, .h-lg-down-ratio-3-2, etc.
+// Sizes in px: e.g. .h-sm-down-50px, .w-md-down-100px, until 1000px
+// Sizes in %: e.g. .h-sm-down-25, .w-md-down-50, until 100
+// Sizes in vh / vw: e.g. .h-sm-down-vh-25, .w-md-down-vw-50, until 100
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @if $breakpoint != xxs {
+      @each $prop, $abbrev in (height: h) {
+        @each $ratio in $ratios {
+          .#{$abbrev}#{$infix}-down-ratio-#{$ratio} {
+            #{$prop}: auto !important;
+            .img-ratio {
+              display: none !important;
+            }
+            .img-ratio-#{$ratio} {
+              display: block !important;
+            }
+          }
+        }
+      }
+      @each $prop, $abbrev in (height: h, width: w) {
+        @each $size, $length in $sizes-px {
+          .#{$abbrev}#{$infix}-down-#{$size} {
+            #{$prop}: $length !important;
+          }
+        }
+        @each $size, $length in $sizes {
+          .#{$abbrev}#{$infix}-down-#{$size} {
+            #{$prop}: $length !important;
+          }
+          @if #{$length} != auto {
+            .#{$abbrev}#{$infix}-down-v#{$abbrev}-#{$size} {
+              #{$prop}: #{$size}v#{$abbrev} !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Max height & width responsive utilities
+//
+// Sizes in px: e.g. .mh-50px, .mw-sm-100px, .mh-md-150px, until 1000px
+// Sizes in %: e.g. .mh-25, .mw-sm-50, .mh-md-75, until 100
+// Sizes in vh / vw: e.g. .mh-vh-25, .mw-sm-vw-50, .mh-md-vh-75, until 100
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $prop, $abbrev in (height: h, width: w) {
+      @each $size, $length in $sizes-px {
+        .m#{$abbrev}#{$infix}-#{$size} {
+          max-#{$prop}: $length !important;
+        }
+      }
+      @each $size, $length in $sizes {
+        .m#{$abbrev}#{$infix}-#{$size} {
+          max-#{$prop}: $length !important;
+        }
+        @if #{$length} != auto {
+          .m#{$abbrev}#{$infix}-v#{$abbrev}-#{$size} {
+            max-#{$prop}: #{$size}v#{$abbrev} !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Sizes in grid breakpoints
+// e.g. .mw-sm = (max-width: 576px)
+// e.g. .mw-md = (max-width: 768px)
+// e.g. .mw-lg = (max-width: 992px) etc.
+.mw-sm {
+  @include media-breakpoint-up(sm) {
+    max-width: 540px !important;
+  }
+}
+.mw-md {
+  @include media-breakpoint-up(md) {
+    max-width: 720px !important;
+  }
+}
+.mw-lg {
+  @include media-breakpoint-up(lg) {
+    max-width: 960px !important;
+  }
+}
+.mw-xl {
+  @include media-breakpoint-up(xl) {
+    max-width: 1140px !important;
+  }
+}
+.mw-xxl {
+  @include media-breakpoint-up(xxl) {
+    max-width: 1320px !important;
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: " ";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .outer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    > .inner-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
+    }
+  }
+}
+
+// Ratio responsive utilities
+//
+// In ratio: e.g. .r-1-1, .r-2-1, .r-1-2, .r-3-1, etc.
+.ratio {
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.r-1-1 {
+  @include aspect-ratio(1, 1);
+}
+.r-2-1 {
+  @include aspect-ratio(2, 1);
+}
+.r-1-2 {
+  @include aspect-ratio(1, 2);
+}
+.r-3-1 {
+  @include aspect-ratio(3, 1);
+}
+.r-1-3 {
+  @include aspect-ratio(1, 3);
+}
+.r-3-2 {
+  @include aspect-ratio(3, 2);
+}
+.r-2-3 {
+  @include aspect-ratio(2, 3);
+}
+.r-4-3 {
+  @include aspect-ratio(4, 3);
+}
+.r-3-4 {
+  @include aspect-ratio(3, 4);
+}
+.r-5-4 {
+  @include aspect-ratio(5, 4);
+}
+.r-4-5 {
+  @include aspect-ratio(4, 5);
+}
+.r-16-9 {
+  @include aspect-ratio(16, 9);
+}
+.r-9-16 {
+  @include aspect-ratio(9, 16);
+}
+
+@include media-breakpoint-up(sm) {
+  .r-sm-1-1 {
+    @include aspect-ratio(1, 1);
+  }
+  .r-sm-2-1 {
+    @include aspect-ratio(2, 1);
+  }
+  .r-sm-1-2 {
+    @include aspect-ratio(1, 2);
+  }
+  .r-sm-3-1 {
+    @include aspect-ratio(3, 1);
+  }
+  .r-sm-1-3 {
+    @include aspect-ratio(1, 3);
+  }
+  .r-sm-3-2 {
+    @include aspect-ratio(3, 2);
+  }
+  .r-sm-2-3 {
+    @include aspect-ratio(2, 3);
+  }
+  .r-sm-4-3 {
+    @include aspect-ratio(4, 3);
+  }
+  .r-sm-3-4 {
+    @include aspect-ratio(3, 4);
+  }
+  .r-sm-5-4 {
+    @include aspect-ratio(5, 4);
+  }
+  .r-sm-4-5 {
+    @include aspect-ratio(4, 5);
+  }
+  .r-sm-16-9 {
+    @include aspect-ratio(16, 9);
+  }
+  .r-sm-9-16 {
+    @include aspect-ratio(9, 16);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .r-md-1-1 {
+    @include aspect-ratio(1, 1);
+  }
+  .r-md-2-1 {
+    @include aspect-ratio(2, 1);
+  }
+  .r-md-1-2 {
+    @include aspect-ratio(1, 2);
+  }
+  .r-md-3-1 {
+    @include aspect-ratio(3, 1);
+  }
+  .r-md-1-3 {
+    @include aspect-ratio(1, 3);
+  }
+  .r-md-3-2 {
+    @include aspect-ratio(3, 2);
+  }
+  .r-md-2-3 {
+    @include aspect-ratio(2, 3);
+  }
+  .r-md-4-3 {
+    @include aspect-ratio(4, 3);
+  }
+  .r-md-3-4 {
+    @include aspect-ratio(3, 4);
+  }
+  .r-md-5-4 {
+    @include aspect-ratio(5, 4);
+  }
+  .r-md-4-5 {
+    @include aspect-ratio(4, 5);
+  }
+  .r-md-16-9 {
+    @include aspect-ratio(16, 9);
+  }
+  .r-md-9-16 {
+    @include aspect-ratio(9, 16);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .r-lg-1-1 {
+    @include aspect-ratio(1, 1);
+  }
+  .r-lg-2-1 {
+    @include aspect-ratio(2, 1);
+  }
+  .r-lg-1-2 {
+    @include aspect-ratio(1, 2);
+  }
+  .r-lg-3-1 {
+    @include aspect-ratio(3, 1);
+  }
+  .r-lg-1-3 {
+    @include aspect-ratio(1, 3);
+  }
+  .r-lg-3-2 {
+    @include aspect-ratio(3, 2);
+  }
+  .r-lg-2-3 {
+    @include aspect-ratio(2, 3);
+  }
+  .r-lg-4-3 {
+    @include aspect-ratio(4, 3);
+  }
+  .r-lg-3-4 {
+    @include aspect-ratio(3, 4);
+  }
+  .r-lg-5-4 {
+    @include aspect-ratio(5, 4);
+  }
+  .r-lg-4-5 {
+    @include aspect-ratio(4, 5);
+  }
+  .r-lg-16-9 {
+    @include aspect-ratio(16, 9);
+  }
+  .r-lg-9-16 {
+    @include aspect-ratio(9, 16);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .r-xl-1-1 {
+    @include aspect-ratio(1, 1);
+  }
+  .r-xl-2-1 {
+    @include aspect-ratio(2, 1);
+  }
+  .r-xl-1-2 {
+    @include aspect-ratio(1, 2);
+  }
+  .r-xl-3-1 {
+    @include aspect-ratio(3, 1);
+  }
+  .r-xl-1-3 {
+    @include aspect-ratio(1, 3);
+  }
+  .r-xl-3-2 {
+    @include aspect-ratio(3, 2);
+  }
+  .r-xl-2-3 {
+    @include aspect-ratio(2, 3);
+  }
+  .r-xl-4-3 {
+    @include aspect-ratio(4, 3);
+  }
+  .r-xl-3-4 {
+    @include aspect-ratio(3, 4);
+  }
+  .r-xl-5-4 {
+    @include aspect-ratio(5, 4);
+  }
+  .r-xl-4-5 {
+    @include aspect-ratio(4, 5);
+  }
+  .r-xl-16-9 {
+    @include aspect-ratio(16, 9);
+  }
+  .r-xl-9-16 {
+    @include aspect-ratio(9, 16);
+  }
+}
+@include media-breakpoint-up(xxl) {
+  .r-xxl-1-1 {
+    @include aspect-ratio(1, 1);
+  }
+  .r-xxl-2-1 {
+    @include aspect-ratio(2, 1);
+  }
+  .r-xxl-1-2 {
+    @include aspect-ratio(1, 2);
+  }
+  .r-xxl-3-1 {
+    @include aspect-ratio(3, 1);
+  }
+  .r-xxl-1-3 {
+    @include aspect-ratio(1, 3);
+  }
+  .r-xxl-3-2 {
+    @include aspect-ratio(3, 2);
+  }
+  .r-xxl-2-3 {
+    @include aspect-ratio(2, 3);
+  }
+  .r-xxl-4-3 {
+    @include aspect-ratio(4, 3);
+  }
+  .r-xxl-3-4 {
+    @include aspect-ratio(3, 4);
+  }
+  .r-xxl-5-4 {
+    @include aspect-ratio(5, 4);
+  }
+  .r-xxl-4-5 {
+    @include aspect-ratio(4, 5);
+  }
+  .r-xxl-16-9 {
+    @include aspect-ratio(16, 9);
+  }
+  .r-xxl-9-16 {
+    @include aspect-ratio(9, 16);
+  }
+}

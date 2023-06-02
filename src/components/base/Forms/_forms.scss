@@ -1,0 +1,815 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .forms-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Forms
+// ========================================================================================================================================
+
+// ==========================================================================
+// General
+// ==========================================================================
+
+// Text Area
+textarea {
+  resize: none;
+}
+
+// Form Text
+.form-text {
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: $gray-400;
+}
+.invalid-feedback,
+.valid-feedback {
+  display: block;
+}
+.invalid-feedback {
+  @extend .form-text;
+  color: $danger;
+}
+.valid-feedback {
+  @extend .form-text;
+  color: $success;
+}
+
+// Input Group
+.input-group {
+  > .input-group-prepend {
+    > .btn {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  > .input-group-append {
+    > .btn {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  > .field {
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:not(:last-child) {
+      .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Select - React Select
+// ==========================================================================
+
+// Sync react-select styling with Bootstrap 4 base using variables
+.select__control {
+  background-color: $input-bg !important;
+  border-radius: 0 !important;
+  line-height: $input-line-height !important;
+  font-family: $input-font-family !important;
+  font-weight: $input-font-weight !important;
+  border: $input-border-width solid $input-border-color !important;
+  transition: $transition-base !important;
+  box-shadow: $input-box-shadow !important;
+  height: $input-height !important;
+  @include font-size($input-font-size);
+  @if $enable-rounded {
+    border-radius: $input-border-radius !important;
+  }
+  &.select__control--menu-is-open {
+    box-shadow: $input-btn-focus-box-shadow !important;
+    border-color: $input-focus-border-color !important;
+    .select__value-container {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+  .select__value-container {
+    @include ic-right($icon: $ic-angle-down);
+    padding: $input-padding-y $input-padding-x !important;
+    &:after {
+      opacity: 0.5;
+      pointer-events: none;
+      transition: $transition-opacity;
+    }
+    .select__placeholder {
+      color: $input-placeholder-color !important;
+      margin-left: 0;
+    }
+    .select__single-value {
+      color: $input-color !important;
+      margin-left: 0;
+    }
+  }
+  .select__indicators {
+    display: none;
+    .select__indicator-separator {
+      background-color: transparent !important;
+    }
+  }
+}
+
+// Nullify margin & padding if form is searchable to maintain height
+.css-1g6gooi,
+.css-b8ldur-Input {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// React select dropdown menu
+.select__menu {
+  text-align: left !important;
+  z-index: $zindex-dropdown !important;
+  box-shadow: $box-shadow-sm !important;
+  border-radius: 0 !important;
+  border: 1px solid $gray-50;
+  @if $enable-rounded {
+    border-radius: $input-border-radius !important;
+  }
+  .select__option {
+    &.select__option--is-focused {
+      background: rgba($primary, 0.1);
+      &:active {
+        background: rgba($primary, 0.1);
+      }
+    }
+    &.select__option--is-selected {
+      background: $primary;
+      &:hover {
+        background: $primary;
+      }
+    }
+  }
+}
+
+.select__menu-notice {
+  text-align: left !important;
+  z-index: 2;
+}
+
+.select--is-disabled {
+  .select__control {
+    background-color: $input-disabled-bg !important;
+  }
+}
+
+// Icons for React Select
+.form-select {
+  &.ic-left {
+    &:before {
+      width: $input-icon-width;
+      height: $input-height;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    .select__control {
+      .select__value-container {
+        .select__single-value,
+        .select__placeholder {
+          left: $input-height !important;
+        }
+        .css-1g6gooi {
+          position: relative;
+          left: calc(#{$input-height} - #{$input-padding-x}) !important;
+        }
+      }
+    }
+  }
+  &.ic-right {
+    &:after {
+      width: $input-icon-width;
+      height: $input-height;
+      top: 0;
+      right: 0;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+    // Remove custom chevron if .ic-right class is in place
+    .select__control {
+      .select__value-container {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.form-control {
+  &:disabled {
+    color: $gray-600;
+  }
+}
+
+// ==========================================================================
+// Field - Layer 1
+// ==========================================================================
+
+.field {
+  position: relative;
+  label {
+    @include font-size($font-size-base * 0.875);
+    color: $gray-400;
+  }
+}
+
+// To use this, make sure $input-btn-padding-y is .9375rem (to achieve height 56px)
+.field-floating {
+  > label {
+    display: none;
+  }
+  .form-control-wrapper,
+  .form-select-wrapper {
+    label {
+      position: absolute;
+      pointer-events: none;
+      height: 100%;
+      transform-origin: 0 0;
+      transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+      font-size: $font-size-base;
+      margin-bottom: 0;
+      color: $input-placeholder-color;
+    }
+    .form-control,
+    .select__control .select__value-container,
+    .select__control .select__value-container .select__placeholder,
+    .select__control .select__value-container .select__single-value {
+      padding-top: calc(#{$input-btn-padding-y} + 0.5rem) !important;
+      padding-bottom: calc(#{$input-btn-padding-y} - 0.5rem) !important;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+}
+
+// Variant 1: to be applied on .field
+.field-basic {
+  &.field-floating {
+    .form-control-wrapper {
+      label {
+        top: 1px; // for border
+        left: 1px; // for border
+        padding: $input-btn-padding-y $input-btn-padding-x;
+      }
+      .form-control {
+        &:focus ~ label,
+        &:not(:placeholder-shown) ~ label {
+          color: $input-placeholder-color;
+          transform: scale(0.8) translateY(-0.5rem) translateX(0.15rem);
+        }
+      }
+    }
+    .form-select-wrapper {
+      label {
+        top: 1px; // for border
+        left: 1px; // for border
+        padding: $input-btn-padding-y $input-btn-padding-x;
+        color: $input-placeholder-color;
+        transform: scale(0.8) translateY(-0.5rem) translateX(0.15rem);
+      }
+    }
+  }
+  .el-underline {
+    display: none;
+  }
+}
+
+// Variant 2: to be applied on .field
+.field-underline {
+  label {
+    margin-bottom: 0;
+  }
+  .form-control {
+    border-radius: 0;
+    border-color: transparent;
+    border-left: 0;
+    border-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    &:focus {
+      box-shadow: none;
+    }
+    &:focus ~ .el-underline {
+      @extend .el-underline-focus;
+    }
+  }
+  .select__control {
+    border-radius: 0 !important;
+    border-color: transparent !important;
+    &:after {
+      content: "";
+      @extend .el-underline;
+    }
+    .select__value-container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      &:after {
+        right: 1px !important;
+      }
+    }
+    &.select__control--menu-is-open {
+      box-shadow: none !important;
+      border-color: transparent !important;
+      &:after {
+        @extend .el-underline-focus;
+      }
+    }
+  }
+  &.field-floating {
+    .form-control-wrapper {
+      label {
+        top: 0; // for border
+        left: 0; // for border
+        padding: $input-btn-padding-y 0;
+      }
+      .form-control {
+        &:focus ~ label,
+        &:not(:placeholder-shown) ~ label {
+          color: $input-placeholder-color;
+          transform: scale(0.8) translateY(-0.75rem) translateX(0);
+        }
+      }
+    }
+    .form-select-wrapper {
+      label {
+        top: 0; // for border
+        left: 0; // for border
+        padding: $input-btn-padding-y 0;
+        color: $input-placeholder-color;
+        transform: scale(0.8) translateY(-0.75rem) translateX(0);
+      }
+    }
+  }
+}
+
+// Underline element (replacing the border bottom on .field-underline
+.el-underline {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 1px;
+  background: $input-border-color;
+  transition: $transition-base;
+  pointer-events: none;
+}
+.el-underline-focus {
+  bottom: -1px;
+  height: 2px;
+  background: $input-focus-border-color;
+}
+
+// Theme
+.field {
+  &.dark {
+    .form-control {
+      background: transparent;
+      color: $white;
+    }
+  }
+}
+
+// ==========================================================================
+// Form Control / Select Wrapper - Layer 2
+// ==========================================================================
+
+// Remove default caret from <select>
+.form-select-wrapper {
+  .form-control {
+    appearance: none;
+  }
+}
+
+.form-control-wrapper,
+.form-select-wrapper {
+  position: relative;
+  &.ic-left {
+    &:before {
+      height: $input-height;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &.ic-right {
+    &:after {
+      height: $input-height;
+      top: 0;
+      right: 0;
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+    // Remove chevron on React Select if .ic-right is present
+    .select__value-container {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.field-basic {
+  .form-select-wrapper:not(.rs) {
+    @include ic-right($icon: $ic-angle-down);
+    &:after {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+  .form-control-wrapper,
+  .form-select-wrapper {
+    &.ic-left {
+      &:before {
+        width: $input-icon-width;
+        z-index: 1;
+      }
+      .form-control,
+      .select__value-container {
+        padding-left: $input-height !important;
+      }
+    }
+    &.ic-right {
+      &:after {
+        width: $input-icon-width;
+        z-index: 1;
+      }
+      .form-control,
+      .select__value-container {
+        padding-right: $input-height !important;
+      }
+    }
+  }
+  &.field-floating {
+    .form-control-wrapper {
+      &.ic-left {
+        label {
+          left: calc(#{$input-height} + 1px); // for border
+          padding-left: 0;
+        }
+        .form-control {
+          &:focus ~ label,
+          &:not(:placeholder-shown) ~ label {
+            transform: scale(0.8) translateY(-0.5rem) translateX(0);
+          }
+        }
+      }
+    }
+    .form-select-wrapper {
+      &.ic-left {
+        label {
+          left: calc(#{$input-height} - 1px); // for border
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.field-underline {
+  .form-select-wrapper:not(.rs) {
+    @include ic-right($icon: $ic-angle-down);
+    &:after {
+      opacity: 0.5;
+      pointer-events: none;
+      right: 1px;
+    }
+  }
+  .form-control-wrapper,
+  .form-select-wrapper {
+    &.ic-left {
+      &:before {
+        left: 1px;
+        z-index: 1;
+      }
+      .form-control,
+      .select__value-container {
+        padding-left: calc(#{$input-height} * 2 / 3) !important;
+      }
+    }
+    &.ic-right {
+      &:after {
+        right: 1px;
+        opacity: 1;
+        z-index: 1;
+      }
+      .form-control,
+      .select__value-container {
+        padding-right: calc(#{$input-height} * 2 / 3) !important;
+      }
+    }
+  }
+  &.field-floating {
+    .form-control-wrapper {
+      &.ic-left {
+        label {
+          left: calc((#{$input-height} * 2 / 3) + 1px);
+        }
+      }
+    }
+    .form-select-wrapper {
+      &.ic-left {
+        label {
+          left: calc((#{$input-height} * 2 / 3) + 1px);
+        }
+      }
+    }
+  }
+}
+
+.field-password {
+  position: relative;
+  .btn-show-password {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    height: 1rem;
+    margin-top: -0.5rem;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+  &.field-underline {
+    .btn-show-password {
+      right: 0;
+    }
+  }
+  &.field-basic {
+    .btn-show-password {
+      right: 1rem;
+    }
+  }
+}
+
+// ==========================================================================
+// Validation
+// ==========================================================================
+
+.is-invalid {
+  &.field-basic {
+    .form-control {
+      border-color: $form-feedback-invalid-color;
+      &:focus {
+        border-color: $form-feedback-invalid-color;
+        box-shadow: 0 0 0 $input-btn-focus-width $form-feedback-invalid-color;
+      }
+    }
+    .form-select {
+      .select__control {
+        // box-shadow: 0 0 0 $input-btn-focus-width $form-feedback-invalid-color !important;
+        border-color: $form-feedback-invalid-color !important;
+        &.select__control--menu-is-open {
+          box-shadow: 0 0 0 $input-btn-focus-width $form-feedback-invalid-color !important;
+          border-color: $form-feedback-invalid-color !important;
+        }
+      }
+    }
+  }
+  &.field-underline {
+    .el-underline {
+      background: $form-feedback-invalid-color;
+    }
+    .form-control {
+      &:focus ~ .el-underline {
+        background: $form-feedback-invalid-color;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Custom Input
+// ==========================================================================
+
+.custom-control {
+  z-index: 0;
+}
+.custom-select {
+  transition: $input-transition; // Soon to be deprecated
+  -webkit-appearance: none; // Soon to be deprecated
+}
+.custom-file-input {
+  transition: $input-transition; // Soon to be deprecated
+}
+
+// ==========================================================================
+// Date Picker
+// ==========================================================================
+
+.field-date-picker {
+  label {
+    font-size: 0.875rem;
+    color: #999999;
+  }
+}
+
+// ==========================================================================
+// Check and Radio
+// ==========================================================================
+
+.form-check {
+  position: relative;
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5em;
+  cursor: pointer;
+  .form-check-input {
+    cursor: pointer;
+    float: left;
+    margin-left: -1.5em;
+  }
+  .form-check-label {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    color: $body-color;
+    font-size: $font-size-base;
+  }
+  @each $color, $value in $theme-colors {
+    &.form-check-#{$color} {
+      .form-check-input[type="radio"] {
+        &:checked {
+          background-color: $white;
+          border-color: $value;
+          &::after {
+            background: $value;
+          }
+        }
+      }
+      .form-check-input[type="checkbox"] {
+        &:checked {
+          @if $color == light {
+            background-color: $value;
+            border-color: $dark;
+            &::after {
+              color: $dark;
+            }
+          } @else {
+            background-color: $value;
+            border-color: $value;
+            &::after {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-check-input {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: 50%;
+  margin-top: -0.625rem;
+  background-color: $white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid rgba($black, 0.25);
+  appearance: none;
+  &:focus {
+    outline: 0;
+  }
+}
+
+// Radio
+.form-check-input[type="radio"] {
+  border-radius: $custom-radio-indicator-border-radius;
+  &:checked {
+    &:after {
+      content: "";
+      width: 65%;
+      height: 65%;
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Check
+.form-check-input[type="checkbox"] {
+  border-radius: 0.125rem;
+  &:checked {
+    &:after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5rem;
+      left: 50%;
+      margin-left: -0.45rem;
+      font-size: 0.875rem;
+      line-height: 1rem;
+      font-family: "Base Icons Regular";
+      content: varIcon($ic-check);
+    }
+  }
+}
+
+// ==========================================================================
+// Toggle
+// ==========================================================================
+
+.form-toggle-wrapper {
+  cursor: pointer;
+  display: flex;
+  .form-toggle {
+    // width: 40px;
+    // height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 50px;
+    padding: 10px;
+    cursor: pointer;
+    padding: 2.1px;
+    align-items: center;
+    height: calc(20px + 5px);
+    width: calc(40px + 5px);
+    .form-toggle__circle {
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      border-radius: 40px;
+    }
+  }
+  .form-toggle-label {
+    padding-left: 0.5rem;
+  }
+  @each $color, $value in $theme-colors {
+    &.form-toggle-#{$color} {
+      .form-toggle {
+        &.on {
+          background-color: $value;
+        }
+        &.off {
+          background-color: rgba($value, 0.25);
+        }
+      }
+    }
+  }
+  &.disabled {
+    .form-toggle {
+      background-color: rgba($black, 0.25) !important;
+      cursor: default;
+      .form-toggle__circle {
+        background-color: rgba($white, 0.4);
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Range
+// ==========================================================================
+
+.form-range {
+  display: flex;
+  align-items: center;
+  .form-range-input {
+    height: 0.25rem;
+    background-color: rgba($body-color, 0.1);
+    // border: 5px solid rgba($body-color, 0.1);
+    border: none;
+  }
+  .form-range-label {
+    padding-left: 1rem;
+    margin-bottom: 0;
+  }
+  @each $color, $value in $theme-colors {
+    &.form-range-#{$color} {
+      accent-color: $value;
+    }
+  }
+}

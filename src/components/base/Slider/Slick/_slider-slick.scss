@@ -1,0 +1,127 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .slider-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Slider
+// ========================================================================================================================================
+
+.slider {
+  // Default padding of 10px
+  .slick-list {
+    margin-left: -($container-padding / 2);
+    margin-right: -($container-padding / 2);
+    .slick-track {
+      margin-left: initial;
+      margin-right: initial;
+      .slick-slide {
+        padding-right: ($container-padding / 2);
+        padding-left: ($container-padding / 2);
+        outline: none !important;
+        * {
+          outline: none !important;
+        }
+        &.slick-active {
+          z-index: 1;
+          &.slick-current {
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+
+  // Arrow
+  .slick-prev,
+  .slick-next {
+    width: 42px;
+    height: 42px;
+    background: $primary;
+    transition: $transition-base;
+    @include hover-focus-active {
+      background: darken($primary, 5%);
+    }
+    &:before {
+      transition: $transition-base;
+      font-size: $font-size-sm !important;
+    }
+    &.slick-disabled {
+      cursor: default;
+      background: $primary;
+      @include hover-focus-active {
+        background: $primary;
+      }
+      &:before {
+        opacity: 0.5;
+      }
+    }
+  }
+  .slick-prev {
+    left: -$container-padding;
+    z-index: 1;
+    &:before {
+      font-family: "Base Icons Regular";
+      content: var($ic-arrow-left);
+    }
+  }
+  .slick-next {
+    right: -$container-padding;
+    &:before {
+      font-family: "Base Icons Regular";
+      content: var($ic-arrow-right);
+    }
+  }
+
+  // No padding utilities
+  &.slick-px-0 {
+    .slick-list {
+      margin-left: 0;
+      margin-right: 0;
+      .slick-track {
+        .slick-slide {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  // Experiment
+  // .slick-list {
+  //   .slick-track {
+  //     .slick-slide {
+  //       transition: $transition-base !important;
+  //       transition-duration: 1s !important;
+  //       .card-bg-img {
+  //         transition: $transition-base;
+  //         transform: scale(1);
+  //       }
+  //       &.slick-active.slick-current {
+  //         .card-bg-img {
+  //           transform: scale(1.2);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+// Show utilities
+.slider {
+  // prettier-ignore
+  .slick-list { overflow: hidden; }
+  // prettier-ignore
+  &.show-initial { .slick-list { @include media-breakpoint-up(xxl) { overflow: inherit; } } }
+  // prettier-ignore
+  &.show-xxl-down { .slick-list { @include media-breakpoint-only(xl) { overflow: inherit; } } }
+  // prettier-ignore
+  &.show-xl-down { .slick-list { @include media-breakpoint-only(lg) { overflow: inherit; } } }
+  // prettier-ignore
+  &.show-lg-down { .slick-list { @include media-breakpoint-only(md) { overflow: inherit; } } }
+  // prettier-ignore
+  &.show-md-down { .slick-list { @include media-breakpoint-only(sm) { overflow: inherit; } } }
+  // prettier-ignore
+  &.show-sm-down { .slick-list { @include media-breakpoint-down(xs) { overflow: inherit; } } }
+}

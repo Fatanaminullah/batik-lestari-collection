@@ -1,0 +1,199 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .social-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Social
+// ========================================================================================================================================
+
+.social {
+  @extend .list-unstyled;
+  display: block;
+  margin: 0;
+  .social-item {
+    margin: 0 0.25rem;
+    display: inline-block;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .social-link {
+    // @extend .hover-underline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    text-align: center;
+    transition: $transition-base;
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  // Shape
+  &.social-circle {
+    .social-link {
+      border-radius: 50%;
+    }
+  }
+  &.social-square {
+    .social-link {
+      border-radius: 0;
+    }
+  }
+
+  // Size
+  &.social-sm {
+    .social-link {
+      width: 1.75rem;
+      height: 1.75rem;
+      line-height: 1.75rem;
+      i {
+        font-size: 0.875rem;
+      }
+    }
+  }
+  &.social-lg {
+    .social-link {
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  // Stacked
+  &.stacked {
+    display: flex;
+    flex-direction: column;
+    .social-item {
+      margin: 0 0 0.75rem 0;
+      a {
+        display: flex;
+        align-items: center;
+        .social-link {
+          margin-left: 0;
+          margin-right: 0.5rem;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.social-primary {
+  @each $brand, $color in $brand-colors {
+    .social-#{$brand} {
+      background: $color;
+      border-color: $color;
+      color: $white;
+    }
+    .social-item {
+      @include hover-focus-active {
+        .social-#{$brand} {
+          background: darken($color, 10%);
+          border-color: darken($color, 10%);
+        }
+      }
+    }
+  }
+  &.inverse {
+    @each $brand, $color in $brand-colors {
+      .social-#{$brand} {
+        background: $white;
+        color: $color;
+      }
+      .social-item {
+        @include hover-focus-active {
+          .social-#{$brand} {
+            background: $color;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.social-white {
+  @each $brand, $color in $brand-colors {
+    .social-#{$brand} {
+      background: $white;
+      border-color: $white;
+      color: $body-color;
+    }
+    .social-item {
+      @include hover-focus-active {
+        .social-#{$brand} {
+          background: $color;
+          border-color: $color;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.social-outline-white {
+  @each $brand, $color in $brand-colors {
+    .social-#{$brand} {
+      background: transparent;
+      color: $white;
+      border: 1px solid $white;
+    }
+    .social-item {
+      @include hover-focus-active {
+        .social-#{$brand} {
+          background: $white;
+          color: $color;
+        }
+      }
+    }
+  }
+}
+
+.social-black {
+  @each $brand, $color in $brand-colors {
+    .social-#{$brand} {
+      background: $black;
+      border-color: $black;
+      color: $white;
+    }
+    .social-item {
+      @include hover-focus-active {
+        .social-#{$brand} {
+          background: $color;
+          border-color: $color;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.social-outline-black {
+  @each $brand, $color in $brand-colors {
+    .social-#{$brand} {
+      background: transparent;
+      color: $black;
+      border: 1px solid $black;
+    }
+    .social-item {
+      @include hover-focus-active {
+        .social-#{$brand} {
+          background: $black;
+          color: $white;
+        }
+      }
+    }
+  }
+}

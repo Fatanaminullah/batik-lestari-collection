@@ -1,0 +1,126 @@
+// ========================================================================================================================================
+// Icons Mixins 1.2.3
+// ========================================================================================================================================
+
+// ==========================================================================
+// General Icons
+// ==========================================================================
+
+@mixin ic-left(
+  $font-family: "Base Icons Regular",
+  $icon: $ic-angle-left,
+  $font-size: $font-size-base,
+  $color: inherit
+) {
+  &:before {
+    font-family: $font-family;
+    font-size: $font-size;
+    content: varIcon($icon);
+    height: 1rem;
+    line-height: 1rem;
+    top: 50%;
+    margin-top: -0.5rem;
+    left: 1rem;
+    position: absolute;
+    color: $color;
+  }
+}
+
+.ic-left {
+  @include ic-left;
+}
+
+@mixin ic-right(
+  $font-family: "Base Icons Regular",
+  $icon: $ic-angle-right,
+  $font-size: $font-size-base,
+  $color: inherit
+) {
+  &:after {
+    font-family: $font-family;
+    font-size: $font-size;
+    content: varIcon($icon);
+    height: 1rem;
+    line-height: 1rem;
+    top: 50%;
+    margin-top: -0.5rem;
+    right: 1rem;
+    position: absolute;
+    color: $color;
+  }
+}
+
+.ic-right {
+  @include ic-right;
+}
+
+@mixin ic-middle(
+  $font-family: "Base Icons Regular",
+  $icon: $ic-circle,
+  $font-size: $font-size-base,
+  $color: inherit
+) {
+  &:after {
+    font-family: $font-family;
+    font-size: $font-size;
+    content: varIcon($icon);
+    height: 1rem;
+    line-height: 1rem;
+    top: 50%;
+    margin-top: -0.5rem;
+    left: 50%;
+    margin-left: -0.5rem;
+    position: absolute;
+    color: $color;
+  }
+}
+
+.ic-middle {
+  @include ic-middle;
+}
+
+// ==========================================================================
+// Font Awesome - Deprecated
+// ==========================================================================
+
+// @mixin fa-right(
+//   $fa: $fa-var-angle-right,
+//   $font-weight: 300,
+//   $font-size: $font-size-base,
+//   $color: $primary
+// ) {
+//   &:after {
+//     font-family: "Font Awesome 5 Pro";
+//     font-weight: $font-weight;
+//     font-size: $font-size;
+//     content: fa-content($fa);
+//     height: 1rem;
+//     line-height: 1rem;
+//     top: 50%;
+//     margin-top: -0.5rem;
+//     right: 1rem;
+//     position: absolute;
+//     color: $color;
+//   }
+// }
+
+// @mixin fa-left(
+//   $fa: $fa-var-angle-right,
+//   $font-weight: 300,
+//   $font-size: $font-size-base,
+//   $color: $primary
+// ) {
+//   &:after {
+//     font-family: "Font Awesome 5 Pro";
+//     font-weight: $font-weight;
+//     font-size: $font-size;
+//     content: fa-content($fa);
+//     height: 1rem;
+//     line-height: 1rem;
+//     top: 50%;
+//     margin-top: -0.5rem;
+//     left: 1rem;
+//     position: absolute;
+//     color: $color;
+//   }
+// }

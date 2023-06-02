@@ -1,0 +1,127 @@
+.carousel {
+  .container-pagination {
+    position: relative;
+    .carousel-pagination__wrapper {
+      position: absolute;
+      z-index: 1;
+      .carousel-pagination {
+        display: flex;
+        gap: 0.5rem;
+        .carousel-pagination__item {
+          width: 1.5rem;
+          height: 0.25rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .carousel-navigation {
+    position: absolute;
+    display: flex;
+    .carousel-navigation__item {
+      cursor: pointer;
+      z-index: 1;
+      i {
+        font-size: 2.5rem;
+      }
+    }
+  }
+  // pagination and navigation position variant
+  &.carousel-middle-left,
+  &.carousel-middle-right,
+  &.carousel-bottom-right,
+  &.carousel-middle-left-arrow,
+  &.carousel-middle-right-arrow,
+  &.carousel-middle-center-arrow,
+  &.carousel-bottom-left-arrow {
+    .carousel-pagination__wrapper {
+      left: 1.25rem;
+      bottom: 1.5rem;
+    }
+  }
+  &.carousel-middle-center,
+  &.carousel-bottom-center,
+  &.carousel-bottom-center-arrow {
+    .carousel-pagination__wrapper {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 1.5rem;
+    }
+  }
+  &.carousel-bottom-left,
+  &.carousel-bottom-right-arrow {
+    .carousel-pagination__wrapper {
+      right: 1.25rem;
+      bottom: 1.5rem;
+    }
+  }
+  &.carousel-middle-left-arrow,
+  &.carousel-middle-right-arrow,
+  &.carousel-middle-center-arrow {
+    .carousel-navigation {
+      bottom: 0.75rem;
+      right: 1.25rem;
+      .carousel-navigation__item {
+        &.left {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  &.carousel-bottom-left-arrow,
+  &.carousel-bottom-right-arrow,
+  &.carousel-bottom-center-arrow {
+    .cover {
+      .cover-content {
+        padding-bottom: 2rem;
+      }
+    }
+    .container-pagination {
+      position: absolute;
+      inset: 0;
+      .carousel-navigation {
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+  // carousel theme color
+  &.carousel-theme-dark {
+    .carousel-navigation {
+      .carousel-navigation__item {
+        i {
+          color: var(--white);
+        }
+      }
+    }
+    .carousel-pagination {
+      .carousel-pagination__item {
+        background: rgba(255, 255, 255, 0.3);
+        &.active {
+          background: var(--white);
+        }
+      }
+    }
+  }
+  &.carousel-theme-light {
+    .carousel-navigation {
+      .carousel-navigation__item {
+        i {
+          color: var(--dark);
+        }
+      }
+    }
+    .carousel-pagination {
+      .carousel-pagination__item {
+        background: rgba(255, 255, 255, 0.5);
+        &.active {
+          background: var(--dark);
+        }
+      }
+    }
+  }
+}

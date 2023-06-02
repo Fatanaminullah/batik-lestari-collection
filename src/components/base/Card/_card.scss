@@ -1,0 +1,138 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .card-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Card
+// ========================================================================================================================================
+
+// .card-basic - Generic card with box padding and border
+// .card-boxless - Card with no box padding effect and no border
+// .card-overlay - Card with content on top of the background image
+
+// Card general styling overrider
+.card {
+  border-color: $gray-100; // Default: $gray-100
+  // prettier-ignore
+  @include box-shadow($box-shadow); // Show box shadow if $enable-shadows is enabled
+  overflow: hidden;
+  .card-icon {
+    position: relative;
+    .card-icon-img {
+      display: block;
+      margin: 1rem auto 0;
+    }
+  }
+  .col-bg {
+    overflow: hidden;
+  }
+  .card-bg {
+    transform: scale(
+      1.00001
+    ); // Nullify unwanted border due to .col-bg background
+  }
+  .card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .card-label {
+    color: $body-color-secondary;
+    letter-spacing: 0.12em;
+    font-weight: $font-weight-normal;
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    margin-bottom: 0.25rem;
+  }
+  .card-title {
+    margin-bottom: 0.5rem; // Default: $card-spacer-y
+    color: $body-color;
+    font-weight: $font-weight-semibold;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .card-text {
+    color: $body-color-secondary;
+    letter-spacing: 0.01em;
+    line-height: 155%;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .bg-overlay {
+    display: none;
+  }
+}
+
+// Card with no box padding effect and no border
+.card-boxless {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  .card-header {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    border-bottom: 0;
+    margin: $spacer 0;
+  }
+  .card-body {
+    padding-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @if $enable-rounded {
+    .col-bg {
+      @include border-radius($card-border-radius);
+    }
+  }
+}
+
+// Card with content on top of the background image
+.card-overlay {
+  position: relative;
+  border: none;
+  .card-bg {
+    .bg-overlay {
+      display: block;
+    }
+  }
+  .col-body {
+    position: absolute;
+    height: 100%;
+    z-index: 1;
+  }
+  .card-body {
+    position: absolute;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .card-overlay {
+    color: rgba($white, 0.75);
+  }
+  .card-title {
+    color: $white;
+  }
+  .card-text {
+    color: rgba($white, 0.75);
+  }
+}
+
+.card-elevated {
+  box-shadow: 0px 14px 40px 3px rgba($black, 0.14);
+  border: none;
+  margin-bottom: 2rem;
+}
+
+.card-background {
+  border: none;
+}

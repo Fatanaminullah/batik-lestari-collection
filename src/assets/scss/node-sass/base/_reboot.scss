@@ -1,0 +1,28 @@
+// Reboot SCSS
+// Version 1.0.0
+//
+// Custom styles for reboot SCSS.
+
+// Prevent extra space on the right side of the viewport
+html,
+body {
+  // visibility: hidden;
+  overflow-x: hidden !important;
+}
+
+// Add transition effect to <a>
+a {
+  @include transition($transition-base);
+}
+
+// Remove button outline
+button:focus {
+  outline: 0;
+}
+
+// Remove input type number spinner
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

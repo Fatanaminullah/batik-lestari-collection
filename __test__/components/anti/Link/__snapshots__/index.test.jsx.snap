@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link component it renders correctly with custom className 1`] = `
+<div>
+  <a
+    class="custom-class"
+    href="/"
+  >
+    Home
+  </a>
+</div>
+`;
+
+exports[`Link component it renders correctly with custom href 1`] = `
+<div>
+  <a
+    href="/about"
+  >
+    About
+  </a>
+</div>
+`;
+
+exports[`Link component it renders correctly with custom props 1`] = `
+<div>
+  <a
+    data-testid="link"
+    href="/"
+  >
+    Home
+  </a>
+</div>
+`;
+
+exports[`Link component it renders correctly with custom target 1`] = `
+<div>
+  <a
+    href="https://google.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Google
+  </a>
+</div>
+`;
+
+exports[`Link component it renders correctly with default props 1`] = `
+<div>
+  <a
+    href="/"
+  >
+    Home
+  </a>
+</div>
+`;

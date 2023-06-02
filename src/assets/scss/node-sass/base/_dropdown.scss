@@ -1,0 +1,41 @@
+// Dropdown base
+// Version 1.1.0
+//
+// Custom styles for dropdown base.
+
+.dropdown-menu {
+  animation-duration: 0.25s;
+  margin: 0;
+}
+
+// Make the :active state of .dropdown-item consistent with :focus state
+.dropdown-item {
+  padding: 0.5rem 1.25rem !important;
+  &.active,
+  &:active {
+    color: $dropdown-link-hover-color;
+    @include gradient-bg($dropdown-link-hover-bg);
+  }
+  .dropdown-icon {
+    width: 1rem;
+    margin-right: 0.25rem;
+  }
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  position: relative;
+  padding-right: 1rem;
+  &:after {
+    font-family: "Base Icons Regular";
+    font-size: 1rem;
+    content: varIcon($ic-angle-down);
+    height: 1rem;
+    line-height: 1rem;
+    top: 50%;
+    margin-top: -0.5rem;
+    right: 0;
+    position: absolute;
+    color: $primary;
+  }
+}

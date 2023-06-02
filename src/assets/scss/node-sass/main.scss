@@ -1,0 +1,148 @@
+// ========================================================================================================================================
+// Import
+// ========================================================================================================================================
+
+// ==========================================================================
+// Bootstrap Base & Custom Variables
+// ==========================================================================
+
+// Required functions / mixins used in variables config
+@import "../../../../node_modules/bootstrap/scss/functions"; // DO NOT EDIT
+@import "functions/strip-sass"; // e.g. strip unit in SASS
+@import "mixins/fonts-custom"; // DO NOT EDIT
+
+// Custom variables
+// EDIT THESE VARIABLES
+@import "variables/color"; // Set base color variables
+@import "variables/options"; // Enable base rounded / shadows
+@import "variables/spacing-grid";
+@import "variables/border-shadow-modal"; // Set base border, box shadow, and modal variables
+@import "variables/typography"; // Set custom fonts and base typography variables
+@import "variables/buttons-forms"; // Set buttons / forms base padding and other variables
+@import "variables/breadcrumbs";
+@import "variables/transitions";
+@import "variables/animations"; // Set general animation duration
+@import "variables/navbar"; // Set navbar height, animation duration, and other variables
+@import "variables/alert";
+
+// Base styles
+@import "base/bootstrap.scss"; // Bootstrap 4 base variables, mixins, and styles
+
+// ==========================================================================
+// Optional Plugins
+// ==========================================================================
+
+// Font Awesome 5.13.0
+// @import "../plugins/fontawesome-pro/css/all.min.css";
+// @import "../plugins/fontawesome-pro/scss/fontawesome.scss";
+
+// Base Icons 1.0.0
+@import "../../plugins/base-icons/variables";
+@import "../../plugins/base-icons/light/style.css";
+@import "../../plugins/base-icons/regular/style.css";
+@import "../../plugins/base-icons/solid/style.css";
+@import "../../plugins/base-icons/brands/style.css";
+
+// // Icomoon
+// @import "../plugins/icomoon/style.css";
+
+// Slick Carousel
+@import "../../../../node_modules/slick-carousel/slick/slick.css";
+@import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
+
+// ==========================================================================
+// Antikode Custom Mixins, Utilities, Overriders, and Base
+// ==========================================================================
+
+// Custom Mixins
+@import "mixins/gradients"; // Gradients mixns
+@import "mixins/icons"; // Font awesome mixins
+@import "mixins/prefix"; // Vendor-prefixed CSS helper
+@import "mixins/position"; // Shorthandizes position declarations
+@import "mixins/text-truncate"; // Text truncate multiline
+
+// Plugin Style Overrider
+@import "overrider/datatable";
+@import "overrider/select2";
+
+// Utilities
+@import "utilities/background"; // e.g. .bg-overlay
+@import "utilities/buttons"; // e.g. .btn-block-mw-100px, .btn-block-mw-200px, etc.
+@import "utilities/grid"; // e.g. .row-0, .row-1, .row-10px, .row-20px, etc.
+@import "utilities/position"; // e.g. .center-both, etc.
+@import "utilities/sizing"; // e.g. .h-50px, .w-md-100-px, etc.
+@import "utilities/spacing"; // e.g. .py-main, .mb-sm-down-1, etc.
+@import "utilities/text"; // e.g. .text-truncate-twoline, etc.
+
+// SCSS base component
+@import "base/alert";
+@import "base/animations";
+@import "base/background";
+@import "base/dropdown";
+@import "base/forms";
+@import "base/nav";
+@import "base/post";
+@import "base/reboot";
+@import "base/table";
+
+// ==========================================================================
+// Base Components
+// ==========================================================================
+@import "../../../../src/components/base/Button/button";
+@import "../../../../src/components/base/Button/button-custom";
+@import "../../../../src/components/base/Link/link";
+@import "../../../../src/components/base/Link/link-custom";
+@import "../../../../src/components/base/Image/image";
+@import "../../../../src/components/base/Image/image-custom";
+@import "../../../../src/components/base/Card/card";
+@import "../../../../src/components/base/Card/card-custom";
+@import "../../../../src/components/base/Cover/cover";
+@import "../../../../src/components/base/Cover/cover-custom";
+@import "../../../../src/components/base/Forms/forms";
+@import "../../../../src/components/base/Forms/forms-custom";
+@import "../../../../src/components/base/Timeline/timeline";
+@import "../../../../src/components/base/Timeline/timeline-custom";
+@import "../../../../src/components/base/Modal/modal";
+@import "../../../../src/components/base/Modal/modal-custom";
+@import "../../../../src/components/base/Slider/Slick/slider-slick";
+@import "../../../../src/components/base/Slider/Slick/slider-slick-custom";
+@import "../../../../src/components/base/Slider/Carousel/carousel";
+@import "../../../../src/components/base/Slider/Carousel/carousel-custom";
+@import "../../../../src/components/base/Skeleton/skeleton";
+@import "../../../../src/components/base/Skeleton/skeleton-custom";
+@import "../../../../src/components/base/Breadcrumb/breadcrumb";
+@import "../../../../src/components/base/Breadcrumb/breadcrumb-custom";
+@import "../../../../src/components/base/Stats/stats";
+@import "../../../../src/components/base/Stats/stats-custom";
+@import "../../../../src/components/base/Social/social";
+@import "../../../../src/components/base/Social/social-custom";
+@import "../../../../src/components/base/Alert/alert";
+@import "../../../../src/components/base/Alert/alert-custom";
+@import "../../../../src/components/base/Toast/toast";
+@import "../../../../src/components/base/Toast/toast-custom";
+@import "../../../../src/components/base/Tabs/tabs";
+@import "../../../../src/components/base/Tabs/tabs";
+@import "../../../../src/components/base/PageIndicator/page-indicator-custom";
+@import "../../../../src/components/base/PageIndicator/page-indicator";
+
+// ==========================================================================
+// Sections Styles
+// ==========================================================================
+@import "../../../../src/components/sections/Cover/cover";
+@import "../../../../src/components/sections/CardList/card-list";
+@import "../../../../src/components/sections/News/news"; // ==========================================================================
+// Pages Styles
+// ==========================================================================
+
+// ========================================================================================================================================
+// Custom Styles
+// ========================================================================================================================================
+
+// ==========================================================================
+// General
+// ==========================================================================
+
+// Insert custom style here
+
+@import "../../../components/global/Layout/Footer/footer";
+@import "../../../components/global/Layout/Navbar/navbar";

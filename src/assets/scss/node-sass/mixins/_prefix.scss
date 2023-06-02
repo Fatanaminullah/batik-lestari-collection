@@ -1,0 +1,12 @@
+// Prefix mixins
+// Version 1.0.0
+//
+// Custom mixins for vendor prefix
+
+// Mixin helper to output vendor-prefixed CSS
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+  #{$property}: $value;
+}

@@ -1,0 +1,70 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .skeleton-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Skeleton
+// ========================================================================================================================================
+
+$skeleton-bg: $gray-100;
+$skeleton-loader-bg: $white;
+
+.skeleton-item {
+  position: relative;
+  width: 100%;
+  .skeleton-loader {
+    z-index: 1;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba($white, 0.5),
+      transparent
+    );
+    position: absolute;
+    animation-name: skeleton;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    @include media-breakpoint-up(md) {
+      animation-duration: 1.5s;
+    }
+    @include media-breakpoint-up(lg) {
+      animation-duration: 2s;
+    }
+  }
+  .skeleton {
+    background-color: $skeleton-bg;
+    position: relative;
+    overflow: hidden;
+    color: transparent !important;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.skeleton-group {
+  width: 100%;
+  .skeleton-item {
+    &:last-child {
+      width: 90%;
+    }
+    .skeleton {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@keyframes skeleton {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}

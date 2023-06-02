@@ -1,0 +1,113 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .timeline-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Timeline
+// ========================================================================================================================================
+
+.timeline {
+  padding-left: 0;
+  margin: 1rem 0;
+  .timeline-item {
+    position: relative;
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+    .timeline-line {
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      display: block;
+      margin-top: 0.25rem;
+      margin-right: 2rem;
+      position: relative;
+      flex-shrink: 0;
+      &:before,
+      &:after {
+        content: "";
+        height: 250px;
+        width: 2px;
+        position: absolute;
+        margin-left: -1px;
+        left: 50%;
+      }
+      &:before {
+        bottom: 1rem;
+      }
+      &:after {
+        top: 1rem;
+      }
+    }
+    .timeline-content {
+      margin-bottom: 1rem;
+      width: 100%;
+      p {
+        margin-bottom: 0;
+      }
+      .btn-link {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+    }
+    + .timeline-item {
+      &:before {
+        height: 150%;
+      }
+    }
+    &:first-child {
+      .timeline-line {
+        &:before {
+          height: 0;
+        }
+      }
+    }
+    &:last-child {
+      .timeline-line {
+        &:after {
+          height: 0;
+        }
+      }
+    }
+  }
+  // Color Theme
+  &.timeline-dark {
+    .timeline-content {
+      // prettier-ignore
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: $white; }
+      // prettier-ignore
+      p, ul, li { color: rgba($white, 0.75); }
+      .btn-link {
+        color: $white;
+        &.hover-underline:before {
+          background-color: $white;
+        }
+      }
+    }
+    .timeline-line {
+      background: $white;
+      &:before,
+      &:after {
+        background: rgba($white, 0.5);
+      }
+    }
+  }
+  &.timeline-light {
+    .timeline-content {
+      color: $body-color;
+      // prettier-ignore
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: $body-color; }
+      // prettier-ignore
+      p, ul, li { color: rgba($body-color, 0.75); }
+    }
+    .timeline-line {
+      background: $body-color;
+      &:before,
+      &:after {
+        background: rgba($body-color, 0.5);
+      }
+    }
+  }
+}

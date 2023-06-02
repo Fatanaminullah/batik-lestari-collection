@@ -1,0 +1,33 @@
+.model {
+  overflow: hidden;
+  position: relative;
+  .name {
+    z-index: 1;
+    span {
+      display: inline-block;
+      position: relative;
+      font-size: 10rem;
+      letter-spacing: 5px;
+      font-weight: bold;
+    }
+  }
+  .more-about-me {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mask {
+      width: 100px;
+      height: 50px;
+      background-color: pink;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+    }
+  }
+}

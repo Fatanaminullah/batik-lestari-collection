@@ -1,0 +1,74 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .breadcrumb-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Breadcrumb
+// ========================================================================================================================================
+
+.breadcrumb {
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: none;
+  background: transparent;
+  .breadcrumb-item {
+    // text-transform: capitalize;
+    @include font-size($font-size-sm);
+
+    & > * {
+      text-transform: capitalize;
+    }
+
+    a {
+      @extend .hover-underline;
+
+      &:before {
+        bottom: -0.25rem;
+        height: 1px;
+        background-color: $body-color; // for .hover-underline
+      }
+    }
+  }
+  // Color theme
+  &.breadcrumb-light {
+    .breadcrumb-item {
+      color: $body-color;
+      a {
+        color: $body-color;
+      }
+      + .breadcrumb-item {
+        &:before {
+          color: $body-color;
+        }
+      }
+      a {
+        &:before {
+          background-color: $body-color; // for .hover-underline
+        }
+      }
+    }
+  }
+  &.breadcrumb-dark {
+    .breadcrumb-item {
+      color: $white;
+      a {
+        color: rgba($white, 0.75);
+        &:hover {
+          color: $white;
+        }
+      }
+      + .breadcrumb-item {
+        &:before {
+          color: rgba($white, 0.5);
+        }
+      }
+      a {
+        &:before {
+          background-color: $white; // for .hover-underline
+        }
+      }
+    }
+  }
+}

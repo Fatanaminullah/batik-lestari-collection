@@ -1,0 +1,97 @@
+//
+// Post
+//
+
+$post-content-multiplier: 1.125;
+
+// Post Header
+.post-header {
+  .post-attr {
+    margin-bottom: 1.5rem;
+    .post-attr-divider {
+      display: inline-block;
+      font-size: 0.6rem;
+      color: $gray-200;
+      margin: 0 0.5rem;
+      position: relative;
+      bottom: 0.125rem;
+    }
+  }
+  .post-category {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: $gray-400;
+  }
+  .post-date {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: $gray-400;
+  }
+  .post-cover {
+    margin-bottom: 1.5rem;
+    // @include media-breakpoint-down(xs) {
+    //   margin-left: -$container-padding; // Nullify container mobile padding
+    //   margin-right: -$container-padding; // Nullify container mobile padding
+    //   width: (
+    //     100% + $container-padding + $container-padding
+    //   ); // Nullify container mobile padding
+    // }
+    @include media-breakpoint-up(md) {
+      width: 100%;
+      margin-bottom: 2.25rem;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+// Post content
+.post-content {
+  // Font size base (for base <p>, <ul>, <li>
+  // prettier-ignore
+  * {
+    @include font-size($font-size-base * $post-content-multiplier);
+  }
+  p {
+    margin-bottom: ($paragraph-margin-bottom * $post-content-multiplier);
+  }
+  li {
+    margin-bottom: (($paragraph-margin-bottom / 2) * $post-content-multiplier);
+  }
+  // prettier-ignore
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: ($headings-margin-bottom * 1.5 * $post-content-multiplier);
+    margin-top: ($headings-margin-bottom * 3 * $post-content-multiplier);
+  }
+  // prettier-ignore
+  h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    margin-top: 0;
+  }
+  // Font size headings
+  h1 {
+    $h1-font-size-lg: ($h1-font-size * $post-content-multiplier);
+    @include font-size($h1-font-size-lg);
+  }
+  h2 {
+    $h2-font-size-lg: ($h2-font-size * $post-content-multiplier);
+    @include font-size($h2-font-size-lg);
+  }
+  h3 {
+    $h3-font-size-lg: ($h3-font-size * $post-content-multiplier);
+    @include font-size($h3-font-size-lg);
+  }
+  h4 {
+    $h4-font-size-lg: ($h4-font-size * $post-content-multiplier);
+    @include font-size($h4-font-size-lg);
+  }
+  h5 {
+    $h5-font-size-lg: ($h5-font-size * $post-content-multiplier);
+    @include font-size($h5-font-size-lg);
+  }
+  h6 {
+    $h6-font-size-lg: ($h6-font-size * $post-content-multiplier);
+    @include font-size($h6-font-size-lg);
+  }
+}
