@@ -7,19 +7,27 @@ const api = new WooCommerceRestApi({
   version: "wc/v3",
 })
 
+export const variablesMapper = (obj) =>
+  Object.keys(obj)
+    ?.filter((item) => obj[item])
+    ?.map((item) => `${item}=${obj[item]}`)
+    ?.join("&")
+
 // fetch all products from WooCommerce //
-export async function fetchAllProducts() {
+export async function fetchAllProducts(variables) {
   try {
-    const response = await api.get("products")
+    const response = await api.get(`products?${variablesMapper(variables)}`)
     return response
   } catch (error) {
     throw new Error(error)
   }
 }
 // fetch all categories from WooCommerce //
-export async function fetchAllCategories() {
+export async function fetchAllCategories({ slug = null }) {
   try {
-    const response = await api.get("products/categories")
+    const response = await api.get(
+      `products/categories${slug ? `?slug=${slug}` : ""}`
+    )
     return response
   } catch (error) {
     throw new Error(error)

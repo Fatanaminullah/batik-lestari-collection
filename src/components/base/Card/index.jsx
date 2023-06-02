@@ -45,7 +45,7 @@ export function Card({
 
   return (
     <Link
-      to={link}
+      href={link}
       className={`card ${cardVariant()} ${className}`}
       target={target}
       id={id}
