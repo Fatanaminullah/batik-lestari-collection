@@ -8,7 +8,7 @@ export default function Home({ categories }) {
         <div className="container py-main">
           <div className="row">
             {categories
-              ?.filter((item) => item.parent === 0)
+              ?.filter((item) => item.slug !== "uncategorized")
               ?.map((item, i) => (
                 <div
                   className="col-md-6 mb-3"
@@ -22,7 +22,11 @@ export default function Home({ categories }) {
                     label=""
                     text=""
                   >
-                    <Button className="w-100" variant="outline-white">
+                    <Button
+                      className="w-100"
+                      variant="outline-white"
+                      link={`/shop/${item.slug}`}
+                    >
                       Shop Now
                     </Button>
                   </Card>
@@ -36,7 +40,7 @@ export default function Home({ categories }) {
 }
 
 export async function getStaticProps() {
-  const categories = await fetchAllCategories()
+  const categories = await fetchAllCategories({ per_page: 20, parent: "0" })
 
   if (!categories) {
     return {

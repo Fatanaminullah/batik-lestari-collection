@@ -33,10 +33,10 @@ export async function fetchAllProductVariants(productId) {
   }
 }
 // fetch all categories from WooCommerce //
-export async function fetchAllCategories({ slug = null }) {
+export async function fetchAllCategories(variables) {
   try {
     const response = await api.get(
-      `products/categories${slug ? `?slug=${slug}` : ""}`
+      `products/categories?${variablesMapper(variables)}`
     )
     return response
   } catch (error) {
