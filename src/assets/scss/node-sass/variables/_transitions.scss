@@ -49,13 +49,13 @@ $reveal-ease: ease(in-out-quart);
 $reveal-block-bg: $dark;
 
 // Ease
-$ease-cubic-bezier:           cubic-bezier(0.55, 0.085, 0.68, 0.53) !default; // Antikode
-$ease-in-out-cubic:           cubic-bezier(0.65, 0, 0.35, 1) !default; // Antikode
-$ease-in-out-quart:           cubic-bezier(0.76, 0, 0.24, 1) !default; // Antikode
+$ease-cubic-bezier:           cubic-bezier(0.55, 0.085, 0.68, 0.53) !default; // Base
+$ease-in-out-cubic:           cubic-bezier(0.65, 0, 0.35, 1) !default; // Base
+$ease-in-out-quart:           cubic-bezier(0.76, 0, 0.24, 1) !default; // Base
 
 $transition-base:             all .2s $ease-cubic-bezier;
 $transition-fade:             opacity .15s linear;
 $transition-collapse:         height .35s ease;
-$transition-opacity:          $transition-fade; // Antikode
-$transition-color:            color .2s ease-in-out; // Antikode
-$transition-background:       background-color .2s ease-in-out; // Antikode
+$transition-opacity:          $transition-fade; // Base
+$transition-color:            color .2s ease-in-out; // Base
+$transition-background:       background-color .2s ease-in-out; // Base

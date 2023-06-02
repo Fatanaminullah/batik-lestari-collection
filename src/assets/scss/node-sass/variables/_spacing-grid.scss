@@ -7,7 +7,7 @@
 
 $spacer: 1rem;
 $spacers: (
-  6: ($spacer * 6) // Antikode
+  6: ($spacer * 6) // Base
 );
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(
@@ -22,7 +22,7 @@ $spacers: map-merge(
   $spacers
 );
 
-$spacer-px: 10px !default; // Antikode
+$spacer-px: 10px !default; // Base
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers-px: (
   0: 0, 
@@ -36,7 +36,7 @@ $spacers-px: (
   80px: ($spacer-px * 4), 
   90px: ($spacer-px * 4.5), 
   100px: ($spacer-px * 5), 
-) !default; // Antikode
+) !default; // Base
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: ();
@@ -52,7 +52,7 @@ $sizes: map-merge(
   $sizes
 );
 
-$size-px: 50px !default; // Antikode
+$size-px: 50px !default; // Base
 // stylelint-disable-next-line scss/dollar-variable-default
 $sizes-px: (
   50px: ($size-px * 1),
@@ -75,7 +75,7 @@ $sizes-px: (
   900px: ($size-px * 18),
   950px: ($size-px * 19),
   1000px: ($size-px * 20)
-) !default; // Antikode
+) !default; // Base
 
 
 // Grid breakpoints
@@ -84,13 +84,13 @@ $sizes-px: (
 // adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-  xxs: 0, // Antikode (default: xs: 0)
-  xs: 360px, // Antikode (breakpoint for iPhone 6/7/8 width)
+  xxs: 0, // Base (default: xs: 0)
+  xs: 360px, // Base (breakpoint for iPhone 6/7/8 width)
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px, // Antikode
+  xxl: 1400px, // Base
 );
 
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
@@ -107,7 +107,7 @@ $grid-breakpoints-pairs: (
   lg: md,
   xl: lg,
   xxl: xl,
-  xxxl: xxxl // Antikode
+  xxxl: xxxl // Base
 );
 
 // Grid containers
@@ -119,7 +119,7 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px, // Antikode
+  xxl: 1320px, // Base
 );
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -131,10 +131,10 @@ $container-max-widths: (
 
 // Grid settings for row
 $grid-columns:                12;
-$grid-gutter-width:           1.25rem; // Antikode (default: 30px)
+$grid-gutter-width:           1.25rem; // Base (default: 30px)
 $grid-row-columns:            6;
 
 // Grid settings for container
-$container-padding:           1.25rem !default; // Antikode (default: 15px)
-$container-padding-md-up:     1.25rem !default; // Antikode (default: 15px)
-$container-padding-sm-down:   1.25rem !default; // Antikode (default: 15px)
+$container-padding:           1.25rem !default; // Base (default: 15px)
+$container-padding-md-up:     1.25rem !default; // Base (default: 15px)
+$container-padding-sm-down:   1.25rem !default; // Base (default: 15px)

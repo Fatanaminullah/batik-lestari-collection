@@ -15,21 +15,27 @@ function SEO({ title, canonical, description, richlink, url }) {
         <meta httpEquiv="content-type" content="text/html" />
         <meta name="robots" content="index,follow" />
 
-        <title>{`${title} | Antikode`}</title>
+        <title>{`${title} | Batik Lestari Collection`}</title>
         <link rel="shortcut icon" href="/icons/favicon.ico" />
         <link rel="apple-touch-icon" href="/icons/apple-icon.png" />
-        <meta name="title" content={`${title} | Antikode`} />
+        <meta name="title" content={`${title} | Batik Lestari Collection`} />
         <meta name="description" content={description} />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
-        <meta property="og:title" content={`${title} | Antikode`} />
+        <meta
+          property="og:title"
+          content={`${title} | Batik Lestari Collection`}
+        />
         <meta property="og:description" content={description} />
         <meta name="og:image" content={`${url}${richlink}`} />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={url} />
-        <meta property="twitter:title" content={`${title} | Antikode`} />
+        <meta
+          property="twitter:title"
+          content={`${title} | Batik Lestari Collection`}
+        />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={`${url}${richlink}`} />
         <meta name="msapplication-TileColor" content={color} />

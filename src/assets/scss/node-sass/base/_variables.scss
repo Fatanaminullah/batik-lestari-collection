@@ -9,43 +9,43 @@
 
 /* Normal Gray */
 $white:    #fff;
-$gray-10:  #fcfcfc !default; // Antikode
-$gray-20:  #fafafa !default; // Antikode
-$gray-50:  #f2f2f2 !default; // Antikode
-$gray-70:  #f9f9f9 !default; // Antikode
-$gray-100: #e5e5e5; // Antikode
-$gray-200: #cccccc; // Antikode
-$gray-300: #b3b3b3; // Antikode
-$gray-400: #999999; // Antikode
-$gray-500: #808080; // Antikode
-$gray-600: #666666; // Antikode
-$gray-700: #4d4d4d; // Antikode
-$gray-800: #333333; // Antikode - $body-color
-$gray-900: #191919; // Antikode
+$gray-10:  #fcfcfc !default; // Base
+$gray-20:  #fafafa !default; // Base
+$gray-50:  #f2f2f2 !default; // Base
+$gray-70:  #f9f9f9 !default; // Base
+$gray-100: #e5e5e5; // Base
+$gray-200: #cccccc; // Base
+$gray-300: #b3b3b3; // Base
+$gray-400: #999999; // Base
+$gray-500: #808080; // Base
+$gray-600: #666666; // Base
+$gray-700: #4d4d4d; // Base
+$gray-800: #333333; // Base - $body-color
+$gray-900: #191919; // Base
 $black:    #000000;
 
 /* Slate Gray */
 // $white:    #fff;
-// $gray-10:  #fcfcfc !default; // Antikode
-// $gray-20:  #fafafa !default; // Antikode
-// $gray-50:  #f1f3f4 !default; // Antikode
-// $gray-70:  #e2e6e9 !default; // Antikode
-// $gray-100: #e9ecee; // Antikode
-// $gray-200: #c8ced5; // Antikode
-// $gray-300: #b2bbc3; // Antikode
-// $gray-400: #9ca7b2; // Antikode
-// $gray-500: #7b8a99; // Antikode
-// $gray-600: #677685; // Antikode
-// $gray-700: #4e5964; // Antikode
-// $gray-800: #343b43; // Antikode - $body-color
-// $gray-900: #1a1e22; // Antikode
+// $gray-10:  #fcfcfc !default; // Base
+// $gray-20:  #fafafa !default; // Base
+// $gray-50:  #f1f3f4 !default; // Base
+// $gray-70:  #e2e6e9 !default; // Base
+// $gray-100: #e9ecee; // Base
+// $gray-200: #c8ced5; // Base
+// $gray-300: #b2bbc3; // Base
+// $gray-400: #9ca7b2; // Base
+// $gray-500: #7b8a99; // Base
+// $gray-600: #677685; // Base
+// $gray-700: #4e5964; // Base
+// $gray-800: #343b43; // Base - $body-color
+// $gray-900: #1a1e22; // Base
 // $black:    #000001;
 
 $grays: (
-  "10": $gray-10, // Antikode
-  "20": $gray-20, // Antikode
-  "50": $gray-50, // Antikode
-  "70": $gray-70, // Antikode
+  "10": $gray-10, // Base
+  "20": $gray-20, // Base
+  "50": $gray-50, // Base
+  "70": $gray-70, // Base
 );
 // stylelint-disable-next-line scss/dollar-variable-default
 $grays: map-merge(
@@ -73,10 +73,10 @@ $yellow:  #ffc107 !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
-$golden:  #cba67d !default; // Antikode
+$golden:  #cba67d !default; // Base
 
 $colors: (
-  "golden":     $golden, // Antikode
+  "golden":     $golden, // Base
 );
 // stylelint-disable-next-line scss/dollar-variable-default
 $colors: map-merge(
@@ -98,20 +98,20 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       $gray-900; // Antikode
-$secondary:     $gray-100; // Antikode
+$primary:       $gray-900; // Base
+$secondary:     $gray-100; // Base
 $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
-$light:         $gray-20; // Antikode
-$dark:          $gray-900; // Antikode
+$light:         $gray-20; // Base
+$dark:          $gray-900; // Base
 
 $theme-colors: (
-  "gray-10":    $gray-10, // Antikode
-  "gray-20":    $gray-20, // Antikode
-  "gray-50":    $gray-50, // Antikode
-  "gray-70":    $gray-70, // Antikode
+  "gray-10":    $gray-10, // Base
+  "gray-20":    $gray-20, // Base
+  "gray-50":    $gray-50, // Base
+  "gray-70":    $gray-70, // Base
   "gray-100":   $gray-100,
   "gray-200":   $gray-200,
   "gray-300":   $gray-300,
@@ -135,7 +135,7 @@ $theme-colors: (
   "white":      $white,
   "gray":       $gray-600,
   "gray-dark":  $gray-800,
-  "golden":     $golden, // Antikode
+  "golden":     $golden, // Base
 );
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
@@ -175,7 +175,7 @@ $escaped-characters: (
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-caret:                                false;
-$enable-rounded:                              false; // Antikode
+$enable-rounded:                              false; // Base
 $enable-shadows:                              false;
 $enable-gradients:                            false;
 $enable-transitions:                          true;
@@ -197,7 +197,7 @@ $enable-deprecation-messages:                 true;
 
 $spacer: 1rem;
 $spacers: (
-  6: ($spacer * 6) // Antikode
+  6: ($spacer * 6) // Base
 );
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(
@@ -212,7 +212,7 @@ $spacers: map-merge(
   $spacers
 );
 
-$spacer-px: 10px !default; // Antikode
+$spacer-px: 10px !default; // Base
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers-px: (
   0: 0, 
@@ -226,7 +226,7 @@ $spacers-px: (
   80px: ($spacer-px * 4), 
   90px: ($spacer-px * 4.5), 
   100px: ($spacer-px * 5), 
-) !default; // Antikode
+) !default; // Base
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: ();
@@ -242,7 +242,7 @@ $sizes: map-merge(
   $sizes
 );
 
-$size-px: 50px !default; // Antikode
+$size-px: 50px !default; // Base
 // stylelint-disable-next-line scss/dollar-variable-default
 $sizes-px: (
   50px: ($size-px * 1),
@@ -265,15 +265,15 @@ $sizes-px: (
   900px: ($size-px * 18),
   950px: ($size-px * 19),
   1000px: ($size-px * 20)
-) !default; // Antikode
+) !default; // Base
 
 // Body
 //
 // Settings for the `<body>` element.
 
 $body-bg:                   $white;
-$body-color:                $gray-800; // Antikode
-$body-color-secondary:      $gray-400; // Antikode
+$body-color:                $gray-800; // Base
+$body-color-secondary:      $gray-400; // Base
 
 
 // Links
@@ -283,7 +283,7 @@ $body-color-secondary:      $gray-400; // Antikode
 $link-color:                              theme-color("primary");
 $link-decoration:                         none;
 $link-hover-color:                        darken($link-color, 15%);
-$link-hover-decoration:                   none; // Antikode
+$link-hover-decoration:                   none; // Base
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15%;
 
@@ -300,8 +300,8 @@ $paragraph-margin-bottom:   1rem;
 // adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-  xxs: 0, // Antikode (default: XS: 0)
-  xs: 360px, // Antikode (breakpoint for iPhone 6/7/8 width)
+  xxs: 0, // Base (default: XS: 0)
+  xs: 360px, // Base (breakpoint for iPhone 6/7/8 width)
   sm: 576px,
   md: 768px,
   lg: 992px,
@@ -347,13 +347,13 @@ $container-max-widths: (
 
 // Grid settings for row
 $grid-columns:                12;
-$grid-gutter-width:           20px; // Antikode (default: 30px)
+$grid-gutter-width:           20px; // Base (default: 30px)
 $grid-row-columns:            6;
 
 // Grid settings for container
-$container-padding:           20px !default; // Antikode (default: 15px)
-$container-padding-md-up:     20px !default; // Antikode (default: 15px)
-$container-padding-sm-down:   20px !default; // Antikode (default: 15px)
+$container-padding:           20px !default; // Base (default: 15px)
+$container-padding-md-up:     20px !default; // Base (default: 15px)
+$container-padding-sm-down:   20px !default; // Base (default: 15px)
 
 
 // Components
@@ -364,21 +364,21 @@ $line-height-lg:              1.5;
 $line-height-sm:              1.5;
 
 $border-width:                1px;
-$border-color:                $gray-100; // Antikode
+$border-color:                $gray-100; // Base
 
-$border-radius:               1rem; // Antikode
-$border-radius-lg:            .5rem; // Antikode
-$border-radius-sm:            .25rem; // Antikode
+$border-radius:               1rem; // Base
+$border-radius-lg:            .5rem; // Base
+$border-radius-sm:            .25rem; // Base
 
 $rounded-pill:                50rem;
 
-$box-shadow-sm:               0 .25rem .5rem rgba($black, .075); // Antikode
+$box-shadow-sm:               0 .25rem .5rem rgba($black, .075); // Base
 $box-shadow:                  0 .5rem 1rem rgba($black, .15);
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175);
 
-$box-shadow-primary-sm:       0 .25rem .5rem rgba($primary, .075) !default; // Antikode
-$box-shadow-primary:          0 .5rem 1rem rgba($primary, .15) !default; // Antikode
-$box-shadow-primary-lg:       0 1rem 3rem rgba($primary, .175) !default; // Antikode
+$box-shadow-primary-sm:       0 .25rem .5rem rgba($primary, .075) !default; // Base
+$box-shadow-primary:          0 .5rem 1rem rgba($primary, .15) !default; // Base
+$box-shadow-primary-lg:       0 1rem 3rem rgba($primary, .175) !default; // Base
 
 $component-active-color:      $white;
 $component-active-bg:         theme-color("primary");
@@ -387,16 +387,16 @@ $caret-width:                 .3em;
 $caret-vertical-align:        $caret-width * .85;
 $caret-spacing:               $caret-width * .85;
 
-$ease-cubic-bezier:           cubic-bezier(0.55, 0.085, 0.68, 0.53) !default; // Antikode
-$ease-in-out-cubic:           cubic-bezier(0.65, 0, 0.35, 1) !default; // Antikode
-$ease-in-out-quart:           cubic-bezier(0.76, 0, 0.24, 1) !default; // Antikode
+$ease-cubic-bezier:           cubic-bezier(0.55, 0.085, 0.68, 0.53) !default; // Base
+$ease-in-out-cubic:           cubic-bezier(0.65, 0, 0.35, 1) !default; // Base
+$ease-in-out-quart:           cubic-bezier(0.76, 0, 0.24, 1) !default; // Base
 
 $transition-base:             all .2s $ease-cubic-bezier;
 $transition-fade:             opacity .15s linear;
 $transition-collapse:         height .35s ease;
-$transition-opacity:          $transition-fade; // Antikode
-$transition-color:            color .2s ease-in-out; // Antikode
-$transition-background:       background-color .2s ease-in-out; // Antikode
+$transition-opacity:          $transition-fade; // Base
+$transition-color:            color .2s ease-in-out; // Base
+$transition-background:       background-color .2s ease-in-out; // Base
 
 
 $embed-responsive-aspect-ratios: () !default;
@@ -416,15 +416,15 @@ $embed-responsive-aspect-ratios: join(
 // Font, line-height, and color for body text, headings, and more.
 
 // Responsive font size base
-$rfs-base-font-size: 1rem; // Antikode
+$rfs-base-font-size: 1rem; // Base
 
 // Font weight
 $font-weight-lighter:         lighter;
 $font-weight-light:           300;
 $font-weight-normal:          400;
-$font-weight-semibold:        600; // Antikode
-$font-weight-bold:            700; // Antikode
-$font-weight-bolder:          bolder; // Antikode
+$font-weight-semibold:        600; // Base
+$font-weight-bold:            700; // Base
+$font-weight-bolder:          bolder; // Base
 
 // Custom font import
 // @include font-face("AkzidenzGrotesk", "AkzidenzGrotesk-Light", $font-weight-light);
@@ -432,20 +432,20 @@ $font-weight-bolder:          bolder; // Antikode
 // @include font-face("AkzidenzGrotesk", "AkzidenzGrotesk-Medium", $font-weight-bold);
 
 // Font default / fallback (DO NOT EDIT)
-$font-default-sans-serif:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default; // Antikode
-$font-default-serif:         Georgia, serif, "Palatino Linotype", "Book Antiqua", Palatino, serif, "Times New Roman", Times, serif !default; // Antikode
-$font-default-monospace:     SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; // Antikode
+$font-default-sans-serif:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default; // Base
+$font-default-serif:         Georgia, serif, "Palatino Linotype", "Book Antiqua", Palatino, serif, "Times New Roman", Times, serif !default; // Base
+$font-default-monospace:     SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; // Base
 
-$font-family-sans-serif:      $font-default-sans-serif; // Antikode
-$font-family-serif:           $font-default-serif; // Antikode
-$font-family-monospace:       $font-default-monospace; // Antikode
+$font-family-sans-serif:      $font-default-sans-serif; // Base
+$font-family-serif:           $font-default-serif; // Base
+$font-family-monospace:       $font-default-monospace; // Base
 
 // Set font family here
-$font-family-base:            $font-family-sans-serif; // Antikode
-$headings-font-family:        $font-family-sans-serif; // Antikode
+$font-family-base:            $font-family-sans-serif; // Base
+$headings-font-family:        $font-family-sans-serif; // Base
 
 // Set options for headings here
-$headings-font-weight:        $font-weight-bold; // Antikode
+$headings-font-weight:        $font-weight-bold; // Base
 $headings-margin-bottom:      $spacer / 2;
 $headings-line-height:        1.2;
 $headings-color:              null; 
@@ -475,18 +475,18 @@ $display3-weight:             300;
 $display4-weight:             300;
 $display-line-height:         $headings-line-height;
 
-$lead-font-size:              $font-size-base * 1.125; // Antikode
+$lead-font-size:              $font-size-base * 1.125; // Base
 $lead-font-weight:            300;
 
-$small-font-size:             87.5%; // Antikode
+$small-font-size:             87.5%; // Base
 
-$text-muted:                  $gray-400; // Antikode
+$text-muted:                  $gray-400; // Base
 
 $blockquote-small-color:      $gray-600;
 $blockquote-small-font-size:  $small-font-size;
 $blockquote-font-size:        $font-size-base * 1.25;
 
-$hr-border-color:             rgba($black, .05); // Antikode
+$hr-border-color:             rgba($black, .05); // Base
 $hr-border-width:             $border-width;
 
 $mark-padding:                .2em;
@@ -542,15 +542,15 @@ $table-border-level:          -6;
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
 
-$input-btn-padding-y:         .5rem; // Antikode
-$input-btn-padding-x:         .75rem; // Antikode
+$input-btn-padding-y:         .5rem; // Base
+$input-btn-padding-x:         .75rem; // Base
 $input-btn-font-family:       null;
 $input-btn-font-size:         $font-size-base;
 $input-btn-line-height:       $line-height-base;
 
-$input-btn-focus-width:       .1rem; // Antikode
+$input-btn-focus-width:       .1rem; // Base
 $input-btn-focus-color:       rgba($component-active-bg, .25);
-$input-btn-focus-box-shadow:  none; // Antikode
+$input-btn-focus-box-shadow:  none; // Base
 
 $input-btn-padding-y-sm:      .25rem;
 $input-btn-padding-x-sm:      .5rem;
@@ -570,19 +570,19 @@ $input-btn-border-width:      $border-width;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 $btn-padding-y:               $input-btn-padding-y;
-$btn-padding-x:               $input-btn-padding-x * 2; // Antikode
+$btn-padding-x:               $input-btn-padding-x * 2; // Base
 $btn-font-family:             $input-btn-font-family;
 $btn-font-size:               $input-btn-font-size;
 $btn-line-height:             $input-btn-line-height;
 $btn-white-space:             null; // Set to `nowrap` to prevent text wrapping
 
 $btn-padding-y-sm:            $input-btn-padding-y-sm;
-$btn-padding-x-sm:            $input-btn-padding-x-sm * 2; // Antikode
+$btn-padding-x-sm:            $input-btn-padding-x-sm * 2; // Base
 $btn-font-size-sm:            $input-btn-font-size-sm;
 $btn-line-height-sm:          $input-btn-line-height-sm;
 
 $btn-padding-y-lg:            $input-btn-padding-y-lg;
-$btn-padding-x-lg:            $input-btn-padding-x-lg * 2; // Antikode
+$btn-padding-x-lg:            $input-btn-padding-x-lg * 2; // Base
 $btn-font-size-lg:            $input-btn-font-size-lg;
 $btn-line-height-lg:          $input-btn-line-height-lg;
 
@@ -590,7 +590,7 @@ $btn-border-width:            $input-btn-border-width;
 
 $btn-font-weight:             $font-weight-normal;
 $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075);
-$btn-focus-width:             0; // Antikode
+$btn-focus-width:             0; // Base
 $btn-focus-box-shadow:        $input-btn-focus-box-shadow; 
 $btn-disabled-opacity:        .65;
 $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125);
@@ -629,10 +629,10 @@ $input-font-size-lg:                    $input-btn-font-size-lg;
 $input-line-height-lg:                  $input-btn-line-height-lg;
 
 $input-bg:                              $white;
-$input-disabled-bg:                     $gray-100; // Antikode
+$input-disabled-bg:                     $gray-100; // Base
 
-$input-color:                           $body-color; // Antikode
-$input-border-color:                    $gray-200; // Antikode
+$input-color:                           $body-color; // Base
+$input-border-color:                    $gray-200; // Base
 $input-border-width:                    $input-btn-border-width;
 $input-box-shadow:                      inset 0 1px 1px rgba($black, .075);
 
@@ -641,12 +641,12 @@ $input-border-radius-lg:                $border-radius-lg;
 $input-border-radius-sm:                $border-radius-sm;
 
 $input-focus-bg:                        $input-bg;
-$input-focus-border-color:              $component-active-bg; // Antikode
+$input-focus-border-color:              $component-active-bg; // Base
 $input-focus-color:                     $input-color;
 $input-focus-width:                     $input-btn-focus-width;
 $input-focus-box-shadow:                $input-btn-focus-box-shadow;
 
-$input-placeholder-color:               $gray-300; // Antikode
+$input-placeholder-color:               $gray-300; // Base
 $input-plaintext-color:                 $body-color;
 
 $input-height-border:                   $input-border-width * 2;
@@ -726,8 +726,8 @@ $custom-switch-width:                           $custom-control-indicator-size *
 $custom-switch-indicator-border-radius:         $custom-control-indicator-size / 2;
 $custom-switch-indicator-size:                  subtract($custom-control-indicator-size, $custom-control-indicator-border-width * 4);
 
-$custom-select-padding-y:           $input-btn-padding-y; // Antikode
-$custom-select-padding-x:           $input-btn-padding-x; // Antikode
+$custom-select-padding-y:           $input-btn-padding-y; // Base
+$custom-select-padding-x:           $input-btn-padding-x; // Base
 $custom-select-font-family:         $input-font-family;
 $custom-select-font-size:           $input-font-size;
 $custom-select-height:              $input-height;
@@ -856,11 +856,11 @@ $nav-link-padding-y:                .5rem;
 $nav-link-padding-x:                1rem;
 $nav-link-disabled-color:           $gray-600;
 
-$nav-tabs-border-color:             $gray-100; // Antikode
+$nav-tabs-border-color:             $gray-100; // Base
 $nav-tabs-border-width:             $border-width;
 $nav-tabs-border-radius:            $border-radius;
 $nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color;
-$nav-tabs-link-active-color:        $body-color; // Antikode
+$nav-tabs-link-active-color:        $body-color; // Base
 $nav-tabs-link-active-bg:           $body-bg;
 $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg;
 
@@ -895,14 +895,14 @@ $navbar-dark-hover-color:           rgba($white, .75);
 $navbar-dark-active-color:          $white;
 $navbar-dark-disabled-color:        rgba($white, .25);
 $navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
-$navbar-dark-toggler-border-color:  transparent; // Antikode
+$navbar-dark-toggler-border-color:  transparent; // Base
 
 $navbar-light-color:                rgba($black, .5);
 $navbar-light-hover-color:          rgba($black, .7);
 $navbar-light-active-color:         rgba($black, .9);
 $navbar-light-disabled-color:       rgba($black, .3);
 $navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
-$navbar-light-toggler-border-color: transparent; // Antikode
+$navbar-light-toggler-border-color: transparent; // Base
 
 $navbar-light-brand-color:                $navbar-light-active-color;
 $navbar-light-brand-hover-color:          $navbar-light-active-color;
@@ -920,7 +920,7 @@ $dropdown-spacer:                   .125rem;
 $dropdown-font-size:                $font-size-base;
 $dropdown-color:                    $body-color;
 $dropdown-bg:                       $white;
-$dropdown-border-color:             $gray-100; // Antikode
+$dropdown-border-color:             $gray-100; // Base
 $dropdown-border-radius:            $border-radius;
 $dropdown-border-width:             $border-width;
 $dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width);
@@ -930,7 +930,7 @@ $dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175);
 
 $dropdown-link-color:               $gray-900;
 $dropdown-link-hover-color:         darken($gray-900, 5%);
-$dropdown-link-hover-bg:            $gray-50; // Antikode
+$dropdown-link-hover-bg:            $gray-50; // Base
 
 $dropdown-link-active-color:        $component-active-color;
 $dropdown-link-active-bg:           $component-active-bg;
@@ -983,11 +983,11 @@ $dropdown-header-color:             $gray-600;
 
 // Cards
 
-$card-spacer-y:                     1rem; // Antikode
-$card-spacer-x:                     1.5rem; // Antikode
+$card-spacer-y:                     1rem; // Base
+$card-spacer-x:                     1.5rem; // Base
 $card-border-width:                 $border-width;
 $card-border-radius:                $border-radius;
-$card-border-color:                 $gray-100; // Antikode
+$card-border-color:                 $gray-100; // Base
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width);
 $card-cap-bg:                       rgba($black, .03);
 $card-cap-color:                    null;
@@ -1127,7 +1127,7 @@ $modal-header-padding:              $modal-header-padding-y $modal-header-paddin
 $modal-xl:                          1140px;
 $modal-lg:                          800px;
 $modal-md:                          500px;
-$modal-sm:                          400px; // Antikode
+$modal-sm:                          400px; // Base
 
 $modal-fade-transform:              translate(0, -50px);
 $modal-show-transform:              none;
@@ -1154,9 +1154,9 @@ $alert-color-level:                 6;
 // Progress bars
 
 // $progress-height:                   1rem;
-// $progress-font-size:                $font-size-base * .6; // Antikode (default: .75)
-// $progress-bg:                       $gray-70; // Antikode
-// $progress-border-radius:            $border-radius-sm; // Antikode
+// $progress-font-size:                $font-size-base * .6; // Base (default: .75)
+// $progress-bg:                       $gray-70; // Base
+// $progress-border-radius:            $border-radius-sm; // Base
 // $progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1);
 // $progress-bar-color:                $white;
 // $progress-bar-bg:                   theme-color("primary");

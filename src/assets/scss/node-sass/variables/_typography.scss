@@ -5,15 +5,15 @@
 
 
 // Responsive font size base
-$rfs-base-font-size:          1rem; // Antikode
+$rfs-base-font-size:          1rem; // Base
 
 // Font weight
 $font-weight-lighter:         lighter;
 $font-weight-light:           300;
 $font-weight-normal:          400;
-$font-weight-semibold:        600; // Antikode
-$font-weight-bold:            700; // Antikode
-$font-weight-bolder:          bolder; // Antikode
+$font-weight-semibold:        600; // Base
+$font-weight-bold:            700; // Base
+$font-weight-bolder:          bolder; // Base
 
 // CDN Font import
 @import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
@@ -24,22 +24,22 @@ $font-weight-bolder:          bolder; // Antikode
 // @include font-face("AkzidenzGrotesk", "AkzidenzGrotesk-Medium", $font-weight-bold);
 
 // Font default / fallback (DO NOT EDIT)
-$font-default-sans-serif:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default; // Antikode
-$font-default-serif:          Georgia, serif, "Palatino Linotype", "Book Antiqua", Palatino, serif, "Times New Roman", Times, serif !default; // Antikode
-$font-default-monospace:      SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; // Antikode
+$font-default-sans-serif:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default; // Base
+$font-default-serif:          Georgia, serif, "Palatino Linotype", "Book Antiqua", Palatino, serif, "Times New Roman", Times, serif !default; // Base
+$font-default-monospace:      SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default; // Base
 
 // Add custom font in front of the $font-default-
 // e.g. "Proxima Nova", $font-default-sans-serif
-$font-family-sans-serif:      "Proxima Nova", $font-default-sans-serif; // Antikode
-$font-family-serif:           $font-default-serif; // Antikode
-$font-family-monospace:       $font-default-monospace; // Antikode
+$font-family-sans-serif:      "Proxima Nova", $font-default-sans-serif; // Base
+$font-family-serif:           $font-default-serif; // Base
+$font-family-monospace:       $font-default-monospace; // Base
 
 // After setting the custom font, set the $font-family-base & $headings-font-family here
-$font-family-base:            $font-family-sans-serif; // Antikode
-$headings-font-family:        $font-family-sans-serif; // Antikode
+$font-family-base:            $font-family-sans-serif; // Base
+$headings-font-family:        $font-family-sans-serif; // Base
 
 // Set options for headings here
-$headings-font-weight:        $font-weight-bold; // Antikode
+$headings-font-weight:        $font-weight-bold; // Base
 $headings-margin-bottom:      $spacer / 2;
 $headings-line-height:        1.2;
 $headings-color:              null; 
@@ -69,12 +69,12 @@ $h6-font-size:                $font-size-base;
 @mixin h5 { @include font-size($h5-font-size); }
 @mixin h6 { @include font-size($h6-font-size); }
 
-$lead-font-size:              $font-size-base * 1.125; // Antikode
+$lead-font-size:              $font-size-base * 1.125; // Base
 $lead-font-weight:            300;
 
-$small-font-size:             87.5%; // Antikode
+$small-font-size:             87.5%; // Base
 
-$text-muted:                  $gray-400; // Antikode
+$text-muted:                  $gray-400; // Base
 
-$hr-border-color:             rgba($black, .05); // Antikode
+$hr-border-color:             rgba($black, .05); // Base
 $hr-border-width:             $border-width;

@@ -5,7 +5,7 @@
 
 // Font-face
 // e.g. @include font-face('gotham', '/fonts/gotham');
-$dir-fonts: "../../../assets/fonts"; // Antikode
+$dir-fonts: "../../../assets/fonts"; // Base
 
 @mixin font-face($font-name, $file-name, $font-weight: normal, $style: normal) {
   @font-face {
