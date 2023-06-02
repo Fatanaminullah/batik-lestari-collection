@@ -1,11 +1,13 @@
 import { Toast } from "@components/base"
 import CardProduct from "@components/global/CardProduct"
 import { fetchAllProducts } from "lib/woocommerce-api"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { ToastContainer, toast } from "react-toastify"
 import { useScrollAnim } from "src/hooks/hooks"
 
 function ShopComponent({ title, categoryId = null }) {
+  const Router = useRouter()
   const [trigger, anim] = useScrollAnim()
   const [list, setList] = useState()
   const [isFetching, setIsFetching] = useState()
@@ -28,7 +30,8 @@ function ShopComponent({ title, categoryId = null }) {
   }
   useEffect(() => {
     fetchData()
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Router.asPath])
   return (
     <>
       <ToastContainer position="top-right" hideProgressBar />

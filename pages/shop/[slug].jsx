@@ -1,11 +1,11 @@
+import ShopComponent from "@components/pages/shop/shop-component"
 import { fetchAllCategories } from "lib/woocommerce-api"
 import React from "react"
 
 function ShopPage({ category }) {
-  console.log("category", category)
   return (
     <>
-      <h1>Page Title</h1>
+      <ShopComponent categoryId={category?.id} title={category?.name} />
     </>
   )
 }

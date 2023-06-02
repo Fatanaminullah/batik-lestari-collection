@@ -12,16 +12,16 @@ function Navbar() {
               <Link href="/shop/men">Men</Link>
             </li>
             <li className="navbar-menu__item">
-              <Link href="/shop/men">Women</Link>
+              <Link href="/shop/women">Women</Link>
             </li>
             <li className="navbar-menu__item">
-              <Link href="/shop/men">Couple</Link>
+              <Link href="/shop/couple">Couple</Link>
             </li>
             <li className="navbar-menu__item">
-              <Link href="/shop/men">Accessories</Link>
+              <Link href="/shop/accessories">Accessories</Link>
             </li>
             <li className="navbar-menu__item">
-              <Link href="/shop/men">Kids</Link>
+              <Link href="/shop/kids">Kids</Link>
             </li>
           </ul>
         </div>

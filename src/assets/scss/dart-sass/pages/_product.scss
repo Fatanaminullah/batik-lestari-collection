@@ -1,0 +1,42 @@
+@use "../variables/grid";
+
+.sc-product-component {
+    .row {
+        .col-img {
+            position: sticky;
+            top: 100px;
+            .carousel {
+                .cover {
+                    .cover-bg-wrapper {
+                        border-radius: 0.25rem;
+                    }
+                }
+            }
+        }
+        .col-text {
+            .price {
+                font-weight: var(--font-weight-normal);
+                font-size: 1.25rem;
+                &.is-on-sale {
+                    span {
+                      text-decoration: line-through;
+                      margin-right: 0.5rem;
+                      color: var(--secondary);
+                      @media screen and (max-width: grid.$sm) {
+                        display: block;
+                      }
+                      &.sale-price {
+                        color: var(--danger);
+                        text-decoration: none;
+                        font-size: 1rem;
+                        font-weight: var(--font-weight-bold);
+                      }
+                    }
+                  }
+            }
+            @media screen and (max-width: grid.$lg) {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}

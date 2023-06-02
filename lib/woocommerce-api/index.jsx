@@ -1,4 +1,5 @@
 import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api"
+import { variablesMapper } from "lib/utils"
 
 const api = new WooCommerceRestApi({
   url: process.env.WORDPRESS_URL,
@@ -6,12 +7,6 @@ const api = new WooCommerceRestApi({
   consumerSecret: process.env.WOOCOMMERCE_SECRET,
   version: "wc/v3",
 })
-
-export const variablesMapper = (obj) =>
-  Object.keys(obj)
-    ?.filter((item) => obj[item])
-    ?.map((item) => `${item}=${obj[item]}`)
-    ?.join("&")
 
 // fetch all products from WooCommerce //
 export async function fetchAllProducts(variables) {
