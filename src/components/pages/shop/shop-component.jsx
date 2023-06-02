@@ -1,5 +1,6 @@
 import { Toast } from "@components/base"
 import CardProduct from "@components/global/CardProduct"
+import { FormatCurrency } from "lib/utils"
 import { fetchAllProducts } from "lib/woocommerce-api"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -39,19 +40,25 @@ function ShopComponent({ title, categoryId = null }) {
           <div className="container">
             <h1 className={`title ${anim(1)}`}>{title}</h1>
             <div className="row pt-4">
-              {list?.data?.map((item, i) => (
-                <div className="col-6 col-md-4" key={`shop-item-${i}`}>
-                  <CardProduct
-                    title={item?.name}
-                    text={item?.price}
-                    label={item?.categories[0]?.name}
-                    img={item?.images[0]?.src}
-                    variant="boxless"
-                    imgRatio="r-3-4"
-                    {...item}
-                  />
+              {isFetching ? (
+                <div className="loading-dots-wrapper">
+                  <h3 className="loading-dots">Loading</h3>
                 </div>
-              ))}
+              ) : (
+                list?.data?.map((item, i) => (
+                  <div className="col-6 col-md-4" key={`shop-item-${i}`}>
+                    <CardProduct
+                      title={item?.name}
+                      text={FormatCurrency(item?.price)}
+                      label={item?.categories[0]?.name}
+                      img={item?.images[0]?.src}
+                      variant="boxless"
+                      imgRatio="r-3-4"
+                      {...item}
+                    />
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
