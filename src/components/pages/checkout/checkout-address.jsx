@@ -1,11 +1,11 @@
 import { Button } from "@components/base"
 import { Field, Forms, Input } from "@components/base/Forms"
-import { useCheckoutStore } from "store"
+import { useGeneralPersistStore } from "store"
 import useStore from "store/useStore"
 import { object, string } from "yup"
 
 function CheckoutAddress() {
-  const checkoutStore = useStore(useCheckoutStore, (state) => state)
+  const checkoutStore = useStore(useGeneralPersistStore, (state) => state)
   const validation = object({
     first_name: string().required("Field is Required"),
     last_name: string().required("Field is Required"),

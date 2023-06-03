@@ -1,51 +1,88 @@
-import { useFetchAPI, useScrollAnim } from "src/hooks/hooks"
-import { useGeneralStore, useCheckoutStore } from "store"
+import { Card, Toast } from "@components/base"
 import { Accordion } from "@components/base/Accordion"
-import { Card } from "@components/base"
-import { FormatCurrency } from "lib/utils"
 import { Input, RadioGroup } from "@components/base/Forms"
-import useStore from "store/useStore"
+import { FormatCurrency } from "lib/utils"
 import {
   createOrder,
+  deleteCart,
   fetchAllPaymentMethod,
   fetchAllShippingMethod,
 } from "lib/woocommerce-api"
+import { useRouter } from "next/router"
 import { useState } from "react"
-import CheckoutSummary from "./checkout-summary"
+import { toast } from "react-toastify"
+import { useFetchAPI, useScrollAnim } from "src/hooks/hooks"
+import { useGeneralPersistStore, useGeneralStore } from "store"
+import useStore from "store/useStore"
 import CheckoutAddress from "./checkout-address"
+import CheckoutSummary from "./checkout-summary"
 
 function CheckoutComponent() {
+  const Router = useRouter()
   const [trigger, anim] = useScrollAnim()
-  const { cartData } = useGeneralStore((state) => state)
-  const checkoutStore = useStore(useCheckoutStore, (state) => state)
+  const [loading, setLoading] = useState(false)
+  const { shippingMethod, paymentMethod, setShippingMethod, setPaymentMethod } =
+    useGeneralStore((state) => state)
+  const checkoutStore = useStore(useGeneralPersistStore, (state) => state)
   const shippingMethods = useFetchAPI(fetchAllShippingMethod, { enabled: true })
   const paymentMethods = useFetchAPI(fetchAllPaymentMethod, { enabled: true })
   const onPlaceOrder = async () => {
+    setLoading(true)
     const data = {
-      payment_method: checkoutStore?.paymentMethod?.id,
-      payment_method_title: checkoutStore?.paymentMethod?.method_title,
+      payment_method: paymentMethod?.id,
+      payment_method_title: paymentMethod?.method_title,
       set_paid: true,
       billing: {
+        email: checkoutStore?.contact,
         ...checkoutStore.address,
       },
       shipping: {
         ...checkoutStore.address,
       },
-      line_items: cartData?.items?.map((item) => ({
+      line_items: checkoutStore?.cartData?.items?.map((item) => ({
         variation_id: item.id,
         quantity: item.quantity.value,
       })),
       shipping_lines: [
         {
-          method_id: checkoutStore?.shippingMethod?.method_id,
-          method_title: checkoutStore?.shippingMethod?.method_title,
+          method_id: shippingMethod?.method_id,
+          method_title: shippingMethod?.method_title,
           total: "0",
         },
       ],
     }
     createOrder(data)
-      .then((res) => console.log("res", res))
-      .catch((error) => console.log("error", error))
+      .then(async (res) => {
+        Router.push(`/checkout/success/${res?.data?.id}`)
+        await deleteCart(() => checkoutStore.setCartData({}))
+        toast(
+          <Toast
+            title="Order Successfully Placed"
+            text=""
+            variant="success"
+            type="filled"
+          />,
+          {
+            type: "success",
+            className: `Toastify__toast-filled`,
+          }
+        )
+      })
+      .catch((error) =>
+        toast(
+          <Toast
+            title={error?.message}
+            text=""
+            variant="error"
+            type="filled"
+          />,
+          {
+            type: "error",
+            className: `Toastify__toast-filled`,
+          }
+        )
+      )
+      .finally(() => setLoading(false))
   }
   return (
     <section className="sc-checkout-component" ref={trigger}>
@@ -60,7 +97,7 @@ function CheckoutComponent() {
                 title="Purchase Summary"
                 titleClassName="checkout-item-title"
               >
-                {cartData?.items?.map((item, i) => (
+                {checkoutStore?.cartData?.items?.map((item, i) => (
                   <Card
                     key={`checkout-item-summary-${i}`}
                     className="checkout-item__summary"
@@ -118,13 +155,13 @@ function CheckoutComponent() {
                       groupLabel=""
                       className="mb-3"
                       name="shipping_methods"
-                      value={checkoutStore?.shippingMethod?.method_id}
+                      value={shippingMethod?.method_id}
                       options={shippingMethods?.data?.data?.map((item) => ({
                         id: item.method_id,
                         label: item.method_title,
                         value: item.method_id,
                         className: "mb-3",
-                        onChange: () => checkoutStore.setShippingMethod(item),
+                        onChange: () => setShippingMethod(item),
                       }))}
                     />
                   )}
@@ -146,7 +183,7 @@ function CheckoutComponent() {
                       groupLabel=""
                       className="mb-3"
                       name="payment_methods"
-                      value={checkoutStore?.paymentMethod?.id}
+                      value={paymentMethod?.id}
                       options={paymentMethods?.data?.data
                         ?.filter((item) => item.enabled)
                         .map((item) => ({
@@ -154,7 +191,7 @@ function CheckoutComponent() {
                           label: item.method_title,
                           value: item.id,
                           className: "mb-3",
-                          onChange: () => checkoutStore.setPaymentMethod(item),
+                          onChange: () => setPaymentMethod(item),
                         }))}
                     />
                   )}
@@ -162,7 +199,11 @@ function CheckoutComponent() {
               </Accordion>
             </div>
             <div className="col-lg-4 col-summary">
-              <CheckoutSummary data={cartData} onPlaceOrder={onPlaceOrder} />
+              <CheckoutSummary
+                data={checkoutStore?.cartData}
+                onPlaceOrder={onPlaceOrder}
+                loading={loading}
+              />
             </div>
           </div>
         </div>

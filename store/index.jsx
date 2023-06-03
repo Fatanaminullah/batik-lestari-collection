@@ -8,13 +8,17 @@ export const useGeneralStore = create((set) => ({
     contact: "",
     address: {},
   },
+  shippingMethod: {},
+  paymentMethod: {},
   setShowCartMenu: (payload) => set({ showCartMenu: payload }),
   setCartData: (payload) => set({ cartData: payload }),
   setCheckoutData: (payload) => set({ checkoutData: payload }),
+  setShippingMethod: (shippingMethod) => set({ shippingMethod }),
+  setPaymentMethod: (paymentMethod) => set({ paymentMethod }),
 }))
 
 // the store itself does not need any change
-export const useCheckoutStore = create(
+export const useGeneralPersistStore = create(
   persist(
     (set, get) => ({
       contact: "",
@@ -30,10 +34,12 @@ export const useCheckoutStore = create(
       },
       shippingMethod: {},
       paymentMethod: {},
+      cartData: {},
       setContact: (contact) => set({ contact }),
       setAddress: (address) => set({ address }),
       setShippingMethod: (shippingMethod) => set({ shippingMethod }),
       setPaymentMethod: (paymentMethod) => set({ paymentMethod }),
+      setCartData: (payload) => set({ cartData: payload }),
     }),
     {
       name: "checkout-store",

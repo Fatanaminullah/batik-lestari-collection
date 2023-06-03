@@ -80,7 +80,16 @@ export async function createOrder(variables) {
     const response = await Woo.post(`orders`, { ...variables })
     return response
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error.response.data.message || error.message)
+  }
+}
+// fetch order by id //
+export async function fetchOrderById(id) {
+  try {
+    const response = await Woo.get(`orders/${id}`)
+    return response
+  } catch (error) {
+    throw new Error(error.response.data.message || error.message)
   }
 }
 // add to cart //
@@ -110,7 +119,7 @@ export async function getCart() {
     throw new Error(error.response.data.message || error.message)
   }
 }
-// delete cart //
+// delete cart item //
 export async function deleteCartItem(itemKey, callback) {
   try {
     const cartKey = Cookies.get("cart_key")
@@ -131,6 +140,17 @@ export async function updateCartItem(itemKey, quantity, callback) {
       `cart/item/${itemKey}?cart_key=${cartKey}`,
       { quantity }
     )
+    if (callback) callback(response.data)
+    return response
+  } catch (error) {
+    throw new Error(error.response.data.message || error.message)
+  }
+}
+// delete cart //
+export async function deleteCart(callback) {
+  try {
+    const cartKey = Cookies.get("cart_key")
+    const response = await CoCart.post(`cart/clear?cart_key=${cartKey}`)
     if (callback) callback(response.data)
     return response
   } catch (error) {
