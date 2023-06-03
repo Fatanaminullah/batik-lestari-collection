@@ -3,7 +3,7 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api"
 import Cookies from "js-cookie"
 import { variablesMapper } from "lib/utils"
 
-const api = new WooCommerceRestApi({
+const Woo = new WooCommerceRestApi({
   url: process.env.WORDPRESS_URL,
   consumerKey: process.env.WOOCOMMERCE_KEY,
   consumerSecret: process.env.WOOCOMMERCE_SECRET,
@@ -17,7 +17,7 @@ const CoCart = new CoCartAPI({
 // fetch all products from WooCommerce //
 export async function fetchAllProducts(variables) {
   try {
-    const response = await api.get(`products?${variablesMapper(variables)}`)
+    const response = await Woo.get(`products?${variablesMapper(variables)}`)
     return response
   } catch (error) {
     throw new Error(error)
@@ -26,7 +26,7 @@ export async function fetchAllProducts(variables) {
 // fetch all products variant from WooCommerce //
 export async function fetchAllProductVariants(productId) {
   try {
-    const response = await api.get(`products/${productId}/variations`)
+    const response = await Woo.get(`products/${productId}/variations`)
     return response
   } catch (error) {
     throw new Error(error)
@@ -35,12 +35,61 @@ export async function fetchAllProductVariants(productId) {
 // fetch all categories from WooCommerce //
 export async function fetchAllCategories(variables) {
   try {
-    const response = await api.get(
+    const response = await Woo.get(
       `products/categories?${variablesMapper(variables)}`
     )
     return response
   } catch (error) {
     throw new Error(error)
+  }
+}
+// fetch shipping zone //
+export async function fetchAllShippingZone() {
+  try {
+    const response = await Woo.get(`shipping/zones/1/locations`)
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+// fetch shipping method //
+export async function fetchAllShippingMethod(variables) {
+  try {
+    const response = await Woo.get(
+      `shipping/zones/1/methods?${variablesMapper(variables)}`
+    )
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+// fetch payment method //
+export async function fetchAllPaymentMethod(variables) {
+  try {
+    const response = await Woo.get(
+      `payment_gateways?${variablesMapper(variables)}`
+    )
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+// create order //
+export async function createOrder(variables) {
+  try {
+    const response = await Woo.post(`orders`, { ...variables })
+    return response
+  } catch (error) {
+    throw new Error(error.response.data.message || error.message)
+  }
+}
+// fetch order by id //
+export async function fetchOrderById(id) {
+  try {
+    const response = await Woo.get(`orders/${id}`)
+    return response
+  } catch (error) {
+    throw new Error(error.response.data.message || error.message)
   }
 }
 // add to cart //
@@ -70,7 +119,7 @@ export async function getCart() {
     throw new Error(error.response.data.message || error.message)
   }
 }
-// delete cart //
+// delete cart item //
 export async function deleteCartItem(itemKey, callback) {
   try {
     const cartKey = Cookies.get("cart_key")
@@ -91,6 +140,18 @@ export async function updateCartItem(itemKey, quantity, callback) {
       `cart/item/${itemKey}?cart_key=${cartKey}`,
       { quantity }
     )
+    console.log("response", response.data)
+    if (callback) callback(response.data)
+    return response
+  } catch (error) {
+    throw new Error(error.response.data.message || error.message)
+  }
+}
+// delete cart //
+export async function deleteCart(callback) {
+  try {
+    const cartKey = Cookies.get("cart_key")
+    const response = await CoCart.post(`cart/clear?cart_key=${cartKey}`)
     if (callback) callback(response.data)
     return response
   } catch (error) {

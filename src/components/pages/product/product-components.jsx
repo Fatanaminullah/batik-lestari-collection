@@ -4,10 +4,12 @@ import { addToCart } from "lib/woocommerce-api"
 import { useState } from "react"
 import { toast } from "react-toastify"
 import { useScrollAnim } from "src/hooks/hooks"
-import { useGeneralStore } from "store"
+import { useGeneralPersistStore, useGeneralStore } from "store"
+import useStore from "store/useStore"
 
 function ProductComponent({ product, variants }) {
-  const { setShowCartMenu, setCartData } = useGeneralStore((state) => state)
+  const { setShowCartMenu } = useGeneralStore((state) => state)
+  const persistStore = useStore(useGeneralPersistStore, (state) => state)
   const [trigger, anim] = useScrollAnim()
   const [loading, setLoading] = useState(false)
   const [selectedVariant, setSelectedVariant] = useState(variants[0])
@@ -28,7 +30,7 @@ function ProductComponent({ product, variants }) {
             text=""
           />
         )
-        await setCartData(res.data)
+        await persistStore.setCartData(res.data)
         setShowCartMenu(true)
       })
       .catch((error) =>

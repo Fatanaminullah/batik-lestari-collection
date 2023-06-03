@@ -47,8 +47,8 @@
 // @import "../plugins/icomoon/style.css";
 
 // Slick Carousel
-@import "../../../../node_modules/slick-carousel/slick/slick.css";
-@import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
+// @import "../../../../node_modules/slick-carousel/slick/slick.css";
+// @import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
 
 // ==========================================================================
 // Base Custom Mixins, Utilities, Overriders, and Base
@@ -88,6 +88,8 @@
 // ==========================================================================
 // Base Components
 // ==========================================================================
+@import "../../../../src/components/base/Accordion/accordion";
+@import "../../../../src/components/base/Accordion/accordion-custom";
 @import "../../../../src/components/base/Button/button";
 @import "../../../../src/components/base/Button/button-custom";
 @import "../../../../src/components/base/Link/link";
@@ -130,7 +132,8 @@
 // ==========================================================================
 @import "../../../../src/components/sections/Cover/cover";
 @import "../../../../src/components/sections/CardList/card-list";
-@import "../../../../src/components/sections/News/news"; // ==========================================================================
+@import "../../../../src/components/sections/News/news"; 
+// ==========================================================================
 // Pages Styles
 // ==========================================================================
 
@@ -217,6 +220,10 @@
   }
 }
 
+.layout-children {
+  margin-top: 100px
+}
+
 // ==========================================================================
 // General
 // ==========================================================================
@@ -226,3 +233,4 @@
 @import "../../../components/global/Layout/Footer/footer";
 @import "../../../components/global/Layout/Navbar/navbar";
 @import "../../../components/global/Layout/Cart/cart";
+@import "../../../components/global/Layout/MobileMenu/mobile-menu";

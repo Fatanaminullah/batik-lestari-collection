@@ -1,0 +1,93 @@
+// ========================================================================================================================================
+// Accordion - Custom
+// ========================================================================================================================================
+
+// General
+$accordion-padding-x: 1.25rem;
+$accordion-padding-y: 1.25rem;
+$accordion-box-shadow: none;
+$accordion-border-radius: $border-radius-sm;
+$accordion-border-color: rgba($black, 0.2);
+
+// Expand Icon
+$accordion-icon-color: $body-color;
+$accordion-expand-plus: 20px;
+$accordion-expand-plus-color: $body-color;
+
+// ==========================================================================
+// General
+// ==========================================================================
+
+// .MuiAccordion-root
+.accordion {
+  box-shadow: $accordion-box-shadow !important; // EDIT this
+  border-radius: $accordion-border-radius !important; // EDIT this
+  border: 1px solid $accordion-border-color; // EDIT this
+  background: rgba($color: $white, $alpha: 0) !important;
+}
+
+// .MuiAccordionSummary-root
+.accordion-header {
+  padding-left: $accordion-padding-y !important;
+  padding-right: $accordion-padding-y !important;
+  .MuiIconButton-root {
+    color: $accordion-icon-color;
+    .MuiIconButton-label {
+      font-size: 1.25rem; // EDIT this
+    }
+  }
+  &.accordion-header-plus {
+    .expand-plus {
+      height: $accordion-expand-plus;
+      width: $accordion-expand-plus;
+      .h-bar,
+      .v-bar {
+        background: $accordion-expand-plus-color;
+      }
+      .h-bar {
+        width: $accordion-expand-plus;
+      }
+      .v-bar {
+        height: $accordion-expand-plus;
+      }
+    }
+  }
+}
+
+// .MuiCollapse-container
+.accordion-content {
+  padding-top: (#{$accordion-padding-y} / 0) !important;
+  padding-left: $accordion-padding-x !important;
+  padding-right: $accordion-padding-x !important;
+  padding-bottom: $accordion-padding-y !important;
+}
+
+// ==========================================================================
+// Accordion Variants
+// ==========================================================================
+
+.accordion {
+  &.accordion-basic {
+    .accordion-header {
+      &.accordion-header-plus {
+        .expand-plus {
+          right: $accordion-padding-x !important;
+        }
+      }
+    }
+  }
+  &.accordion-line {
+    border-bottom: none !important;
+    .accordion-header {
+      border-bottom: 1px solid $accordion-border-color !important;
+      .accordion-title {
+        font-size: 1.5rem;
+      }
+      .MuiAccordionSummary-expandIconWrapper {
+        i {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

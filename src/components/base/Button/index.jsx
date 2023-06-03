@@ -29,6 +29,7 @@ export function Button({
   children,
   disabled,
   type,
+  preventDefault,
 }) {
   const btnSize = useMemo(() => {
     if (!(size === "")) {
@@ -70,8 +71,8 @@ export function Button({
       }${iconRight ? " btn-ic-right" : ""} ${className}`}
       id={id}
       onClick={(e) => {
-        e.preventDefault()
-        onClick(e)
+        if (preventDefault) e.preventDefault()
+        if (onClick) onClick(e)
       }}
       disabled={disabled}
     >

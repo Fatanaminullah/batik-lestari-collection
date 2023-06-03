@@ -1,16 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { getCart } from "lib/woocommerce-api"
 import { useEffect } from "react"
-import { useGeneralStore } from "store"
+import { useGeneralPersistStore, useGeneralStore } from "store"
+import useStore from "store/useStore"
+import Cart from "./Cart/cart"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
-import Cart from "./Cart/cart"
+import MobileMenu from "./MobileMenu"
 
 function Layout({ children }) {
-  const { setCartData } = useGeneralStore((state) => state)
+  const checkoutStore = useStore(useGeneralPersistStore, (state) => state)
   const fetchCart = async () => {
     const { data } = await getCart()
-    setCartData(data)
+    setTimeout(() => {
+      if (checkoutStore) {
+        checkoutStore.setCartData(data)
+      }
+    }, 1000)
   }
   useEffect(() => {
     fetchCart()
@@ -19,8 +25,11 @@ function Layout({ children }) {
     <>
       <Navbar />
       <Cart />
-      {children}
-      <Footer />
+      <MobileMenu />
+      <div className="layout-children">
+        {children}
+        <Footer />
+      </div>
     </>
   )
 }
