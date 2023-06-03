@@ -46,7 +46,7 @@ function ShopComponent({ title, categoryId = null }) {
                 </div>
               ) : (
                 list?.data?.map((item, i) => (
-                  <div className="col-6 col-md-4" key={`shop-item-${i}`}>
+                  <div className="col-6 col-md-3" key={`shop-item-${i}`}>
                     <CardProduct
                       title={item?.name}
                       text={FormatCurrency(item?.price)}
