@@ -17,27 +17,30 @@ function MobileMenu() {
       >
         <ul className="menu">
           <li className="menu__item">
-            <Link href="/shop/men">
+            <Link onClick={() => setShowMobileMenu(false)} href="/shop/men">
               Men <i className="icr ic-chevron-right" />{" "}
             </Link>
           </li>
           <li className="menu__item">
-            <Link href="/shop/women">
+            <Link onClick={() => setShowMobileMenu(false)} href="/shop/women">
               Women <i className="icr ic-chevron-right" />{" "}
             </Link>
           </li>
           <li className="menu__item">
-            <Link href="/shop/couple">
+            <Link onClick={() => setShowMobileMenu(false)} href="/shop/couple">
               Couple <i className="icr ic-chevron-right" />{" "}
             </Link>
           </li>
           <li className="menu__item">
-            <Link href="/shop/accessories">
+            <Link
+              onClick={() => setShowMobileMenu(false)}
+              href="/shop/accessories"
+            >
               Accessories <i className="icr ic-chevron-right" />{" "}
             </Link>
           </li>
           <li className="menu__item">
-            <Link href="/shop/kids">
+            <Link onClick={() => setShowMobileMenu(false)} href="/shop/kids">
               Kids <i className="icr ic-chevron-right" />{" "}
             </Link>
           </li>

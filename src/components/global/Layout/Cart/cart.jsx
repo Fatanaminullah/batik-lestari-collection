@@ -1,16 +1,16 @@
 import { Button, Card } from "@components/base"
 import { Modal } from "@components/base/Modal"
 import { FormatCurrency } from "lib/utils"
-import { useGeneralStore } from "store"
+import { useGeneralStore, useGeneralPersistStore } from "store"
 import { useState } from "react"
 import { useRouter } from "next/router"
 import { slide as Menu } from "react-burger-menu"
+import useStore from "store/useStore"
 import CartItem from "./cart-item"
 
 function Cart() {
-  const { showCartMenu, setShowCartMenu, cartData } = useGeneralStore(
-    (state) => state
-  )
+  const { showCartMenu, setShowCartMenu } = useGeneralStore((state) => state)
+  const persistStore = useStore(useGeneralPersistStore, (state) => state)
   const Router = useRouter()
   return (
     <>
@@ -23,14 +23,15 @@ function Cart() {
         className="modal-cart-menu"
       >
         <div className="cart-menu-items">
-          {cartData?.items?.map((item, i) => (
-            <CartItem item={item} index={i} key={`cart-menu-items-${i}`} />
-          ))}
+          {persistStore &&
+            persistStore?.cartData?.items?.map((item, i) => (
+              <CartItem item={item} index={i} key={`cart-menu-items-${i}`} />
+            ))}
         </div>
         <div className="cart-menu-bottom">
           <div className="row mx-0 justify-content-between">
             <p>Subtotal</p>
-            <h4>{FormatCurrency(cartData?.totals?.subtotal)}</h4>
+            <h4>{FormatCurrency(persistStore?.cartData?.totals?.subtotal)}</h4>
           </div>
           <p className="info">
             Shipping, taxes, and discounts codes calculated at checkout.

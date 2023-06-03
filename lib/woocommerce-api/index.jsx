@@ -140,6 +140,7 @@ export async function updateCartItem(itemKey, quantity, callback) {
       `cart/item/${itemKey}?cart_key=${cartKey}`,
       { quantity }
     )
+    console.log("response", response.data)
     if (callback) callback(response.data)
     return response
   } catch (error) {

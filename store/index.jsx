@@ -37,24 +37,3 @@ export const useGeneralPersistStore = create(
     }
   )
 )
-
-// export const useGeneralStore = createStore(
-//   persist(
-//     {
-//       key: "general",
-//       denylist: ["showCartMenu"],
-//     },
-//     (set) => ({
-//       showCartMenu: false,
-//       cartData: {},
-//       setShowCartMenu: (payload) =>
-//         set((state) => ({
-//           showCartMenu: payload,
-//         })),
-//       setCartData: (payload) =>
-//         set((state) => ({
-//           cartData: payload,
-//         })),
-//     })
-//   )
-// )
