@@ -1,10 +1,8 @@
-import { Button, Card } from "@components/base"
+import { Button } from "@components/base"
 import { Modal } from "@components/base/Modal"
 import { FormatCurrency } from "lib/utils"
-import { useGeneralStore, useGeneralPersistStore } from "store"
-import { useState } from "react"
 import { useRouter } from "next/router"
-import { slide as Menu } from "react-burger-menu"
+import { useGeneralPersistStore, useGeneralStore } from "store"
 import useStore from "store/useStore"
 import CartItem from "./cart-item"
 
