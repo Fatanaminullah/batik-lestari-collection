@@ -1,0 +1,167 @@
+// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
+// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
+// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
+// Override style on .accordion-custom.scss instead
+// unless you want to upgrade the component version
+
+// ========================================================================================================================================
+// Accordion
+// ========================================================================================================================================
+
+// ==========================================================================
+// General
+// ==========================================================================
+
+// .MuiAccordion-root
+.accordion {
+  box-shadow: none !important;
+  border-radius: $border-radius-sm !important;
+  border: 1px solid $gray-100;
+  // Remove expand margin
+  &.Mui-expanded {
+    margin: 0 !important;
+  }
+  // Remove top border
+  &:before {
+    display: none !important;
+  }
+}
+
+// .MuiAccordionSummary-root
+.accordion-header {
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  min-height: auto !important;
+  &.Mui-expanded {
+    min-height: auto !important;
+  }
+  .MuiAccordionSummary-content {
+    margin: 0;
+    padding-right: 2rem;
+    &.Mui-expanded {
+      margin: 0;
+    }
+    .accordion-title {
+      margin-bottom: 0;
+    }
+  }
+  // Remove ripple effect
+  // prettier-ignore
+  .MuiIconButton-root { padding: 0; color: $body-color; margin-right: 0;
+    .MuiIconButton-label { font-size: 1.25rem; line-height: 1;}
+    .MuiTouchRipple-root { display: none; }
+  }
+
+  // Expand plus
+  &.accordion-header-plus {
+    position: relative;
+    .MuiIconButton-label {
+      display: none;
+    }
+    .expand-plus {
+      position: absolute;
+      right: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 20px;
+      width: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      .h-bar,
+      .v-bar {
+        transition: all 0.5s ease(in-out-quart);
+        position: absolute;
+        background-color: $body-color;
+      }
+      .h-bar {
+        top: 50%;
+        margin-top: -1px;
+        right: 0;
+        width: 20px;
+        height: 2px;
+      }
+      .v-bar {
+        left: 50%;
+        margin-left: -1px;
+        top: 0;
+        width: 2px;
+        height: 20px;
+      }
+    }
+  }
+  &.Mui-expanded {
+    .expand-plus {
+      .h-bar {
+        opacity: 0;
+        transform: rotate(90deg);
+      }
+      .v-bar {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+// .MuiAccordionDetails-root
+.accordion-content {
+  padding-top: 0 !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+  padding-bottom: 1.25rem !important;
+}
+
+// ==========================================================================
+// Accordion Variants
+// ==========================================================================
+
+.accordion {
+  &.accordion-basic {
+    + .accordion-basic {
+      margin-top: 0.5rem !important;
+    }
+    .accordion-header {
+      &.accordion-header-plus {
+        .expand-plus {
+          right: 1.25rem;
+        }
+      }
+    }
+  }
+  &.accordion-line {
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid $gray-100 !important;
+    .accordion-header {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      border: none !important;
+      .MuiIconButton-root {
+        margin-right: 0.75rem;
+      }
+    }
+    .accordion-content {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+  &.accordion-boxless {
+    border-radius: 0 !important;
+    border: none !important;
+    .accordion-header {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      border: none !important;
+      .MuiIconButton-root {
+        margin-right: 0.75rem;
+      }
+    }
+    .accordion-content {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+}

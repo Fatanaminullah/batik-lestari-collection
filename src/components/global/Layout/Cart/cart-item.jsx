@@ -75,6 +75,7 @@ function CartItem({ item, index }) {
           variant="outline-dark"
           className="left"
           onClick={() => handleChange("subtract")}
+          preventDefault
         >
           <i className="icl ic-minus" />
         </Button>
@@ -86,6 +87,7 @@ function CartItem({ item, index }) {
           variant="outline-dark"
           className="right"
           onClick={() => handleChange("add")}
+          preventDefault
         >
           <i className="icl ic-plus" />
         </Button>

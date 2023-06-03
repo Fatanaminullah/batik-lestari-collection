@@ -3,7 +3,7 @@ import WooCommerceRestApi from "@woocommerce/woocommerce-rest-api"
 import Cookies from "js-cookie"
 import { variablesMapper } from "lib/utils"
 
-const api = new WooCommerceRestApi({
+const Woo = new WooCommerceRestApi({
   url: process.env.WORDPRESS_URL,
   consumerKey: process.env.WOOCOMMERCE_KEY,
   consumerSecret: process.env.WOOCOMMERCE_SECRET,
@@ -17,7 +17,7 @@ const CoCart = new CoCartAPI({
 // fetch all products from WooCommerce //
 export async function fetchAllProducts(variables) {
   try {
-    const response = await api.get(`products?${variablesMapper(variables)}`)
+    const response = await Woo.get(`products?${variablesMapper(variables)}`)
     return response
   } catch (error) {
     throw new Error(error)
@@ -26,7 +26,7 @@ export async function fetchAllProducts(variables) {
 // fetch all products variant from WooCommerce //
 export async function fetchAllProductVariants(productId) {
   try {
-    const response = await api.get(`products/${productId}/variations`)
+    const response = await Woo.get(`products/${productId}/variations`)
     return response
   } catch (error) {
     throw new Error(error)
@@ -35,8 +35,28 @@ export async function fetchAllProductVariants(productId) {
 // fetch all categories from WooCommerce //
 export async function fetchAllCategories(variables) {
   try {
-    const response = await api.get(
+    const response = await Woo.get(
       `products/categories?${variablesMapper(variables)}`
+    )
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+// fetch shipping zone //
+export async function fetchAllShippingZone() {
+  try {
+    const response = await Woo.get(`shipping/zones/1/locations`)
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+// fetch shipping method //
+export async function fetchAllShippingMethod(variables) {
+  try {
+    const response = await Woo.get(
+      `shipping/zones/1/methods?${variablesMapper(variables)}`
     )
     return response
   } catch (error) {

@@ -1,9 +1,4 @@
-// ░█▀▀▄ ░█▀▀▀█ 　 ░█▄─░█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀ ░█▀▀▄ ▀█▀ ▀▀█▀▀
-// ░█─░█ ░█──░█ 　 ░█░█░█ ░█──░█ ─░█── 　 ░█▀▀▀ ░█─░█ ░█─ ─░█──
-// ░█▄▄▀ ░█▄▄▄█ 　 ░█──▀█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄ ░█▄▄▀ ▄█▄ ─░█──
-// The component is made to be used flexibly. But if you REALLY MUST update edit the component,
-// please add `-custom` on the change log file (e.g. `1.0.0-custom.md`) and log the changes
-
+/* eslint-disable react-hooks/exhaustive-deps */
 // ========================================================================================================================================
 // Hooks
 // ========================================================================================================================================
@@ -207,4 +202,37 @@ export const useScrollDirection = () => {
   }, [scrollDir])
 
   return [scrollDir, scrollOffset]
+}
+
+export function useFetchAPI(func, variables) {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [fetched, setFetched] = useState(false)
+
+  const fetchData = async () => {
+    try {
+      const result = await func(variables)
+      setData(result)
+      setLoading(false)
+      setFetched(true)
+    } catch (err) {
+      setError(err)
+      setLoading(false)
+      setFetched(true)
+    }
+  }
+
+  const refetch = async () => {
+    setFetched(false)
+    setLoading(true)
+  }
+
+  useEffect(() => {
+    if (!fetched) {
+      fetchData()
+    }
+  }, [func, variables, fetched])
+
+  return { data, loading, error, refetch }
 }

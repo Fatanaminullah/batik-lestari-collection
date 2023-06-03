@@ -88,6 +88,8 @@
 // ==========================================================================
 // Base Components
 // ==========================================================================
+@import "../../../../src/components/base/Accordion/accordion";
+@import "../../../../src/components/base/Accordion/accordion-custom";
 @import "../../../../src/components/base/Button/button";
 @import "../../../../src/components/base/Button/button-custom";
 @import "../../../../src/components/base/Link/link";
@@ -130,7 +132,8 @@
 // ==========================================================================
 @import "../../../../src/components/sections/Cover/cover";
 @import "../../../../src/components/sections/CardList/card-list";
-@import "../../../../src/components/sections/News/news"; // ==========================================================================
+@import "../../../../src/components/sections/News/news"; 
+// ==========================================================================
 // Pages Styles
 // ==========================================================================
 
