@@ -2,11 +2,14 @@ import { Image } from "@components/base/Image"
 import { Link } from "@components/base/Link"
 import { slide as Menu } from "react-burger-menu"
 import { Twirl as Hamburger } from "hamburger-react"
-import { useGeneralStore } from "store"
+import { useGeneralStore, useGeneralPersistStore } from "store"
+import useStore from "store/useStore"
 
 function Navbar() {
   const { showCartMenu, setShowCartMenu, setShowMobileMenu, showMobileMenu } =
     useGeneralStore((state) => state)
+  const persistStore = useStore(useGeneralPersistStore, (state) => state)
+  console.log("cartt", persistStore?.cartData)
   return (
     <>
       <div className="navbar">
@@ -46,6 +49,11 @@ function Navbar() {
               onClick={() => setShowCartMenu(!showCartMenu)}
             >
               <i className="icr ic-shopping-cart" />
+              {persistStore?.cartData?.item_count ? (
+                <span className="item-count">
+                  {persistStore?.cartData?.item_count}
+                </span>
+              ) : null}
             </div>
             <div
               className="btn-menu-toggle"

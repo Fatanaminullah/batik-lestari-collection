@@ -55,6 +55,18 @@
                     color: $white;
                 }
             }
+            .btn-cart {
+                position: relative;
+                .item-count {
+                    background: $white;
+                    border-radius: 100%;
+                    padding: 0rem 0.35rem;
+                    position: absolute;
+                    right: -8px;
+                    top: -8px;
+                    font-size: 0.75rem;
+                }
+            }
             @include media-breakpoint-down(sm) {
                 margin-right: -1.25rem;
             }
