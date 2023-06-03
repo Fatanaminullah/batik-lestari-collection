@@ -63,6 +63,26 @@ export async function fetchAllShippingMethod(variables) {
     throw new Error(error)
   }
 }
+// fetch payment method //
+export async function fetchAllPaymentMethod(variables) {
+  try {
+    const response = await Woo.get(
+      `payment_gateways?${variablesMapper(variables)}`
+    )
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+// create order //
+export async function createOrder(variables) {
+  try {
+    const response = await Woo.post(`orders`, { ...variables })
+    return response
+  } catch (error) {
+    throw new Error(error)
+  }
+}
 // add to cart //
 export async function addToCart(variables) {
   try {

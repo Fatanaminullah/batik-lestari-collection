@@ -2,7 +2,7 @@ import { Button } from "@components/base"
 import { FormatCurrency } from "lib/utils"
 import { useScrollAnim } from "src/hooks/hooks"
 
-function CheckoutSummary({ data }) {
+function CheckoutSummary({ data, onPlaceOrder }) {
   const [trigger, anim] = useScrollAnim()
   return (
     <div className="checkout-summary-box" ref={trigger}>
@@ -25,7 +25,7 @@ function CheckoutSummary({ data }) {
           {FormatCurrency(data?.totals?.subtotal)}
         </p>
       </div>
-      <Button variant="dark" className="w-100">
+      <Button variant="dark" className="w-100" onClick={() => onPlaceOrder()}>
         Place Order
       </Button>
     </div>

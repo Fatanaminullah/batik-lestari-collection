@@ -28,8 +28,12 @@ export const useCheckoutStore = create(
         postcode: "",
         country: "ID",
       },
+      shippingMethod: {},
+      paymentMethod: {},
       setContact: (contact) => set({ contact }),
       setAddress: (address) => set({ address }),
+      setShippingMethod: (shippingMethod) => set({ shippingMethod }),
+      setPaymentMethod: (paymentMethod) => set({ paymentMethod }),
     }),
     {
       name: "checkout-store",
