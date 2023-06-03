@@ -1,15 +1,12 @@
 import { Image } from "@components/base/Image"
 import { Link } from "@components/base/Link"
-import { slide as Menu } from "react-burger-menu"
-import { Twirl as Hamburger } from "hamburger-react"
-import { useGeneralStore, useGeneralPersistStore } from "store"
+import { useGeneralPersistStore, useGeneralStore } from "store"
 import useStore from "store/useStore"
 
 function Navbar() {
   const { showCartMenu, setShowCartMenu, setShowMobileMenu, showMobileMenu } =
     useGeneralStore((state) => state)
   const persistStore = useStore(useGeneralPersistStore, (state) => state)
-  console.log("cartt", persistStore?.cartData)
   return (
     <>
       <div className="navbar">
