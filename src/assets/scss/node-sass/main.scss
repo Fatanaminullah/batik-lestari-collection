@@ -220,6 +220,10 @@
   }
 }
 
+.layout-children {
+  margin-top: 100px
+}
+
 // ==========================================================================
 // General
 // ==========================================================================
@@ -229,3 +233,4 @@
 @import "../../../components/global/Layout/Footer/footer";
 @import "../../../components/global/Layout/Navbar/navbar";
 @import "../../../components/global/Layout/Cart/cart";
+@import "../../../components/global/Layout/MobileMenu/mobile-menu";

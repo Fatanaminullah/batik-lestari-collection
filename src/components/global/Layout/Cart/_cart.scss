@@ -1,5 +1,18 @@
 .modal-cart-menu {
     margin: 0 0 0 auto !important;
+    display: flex;
+    flex-direction: column;
+    background: $white;
+    position: relative;
+    padding: 1rem;
+    top: 0;
+    .close {
+        margin-top: 0;
+        margin-right: 0;
+        i {
+            font-size: 2rem;
+        }
+    }
     .modal-wrapper {
         margin-top: 0;
         margin-bottom: 0;

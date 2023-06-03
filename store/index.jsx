@@ -3,16 +3,11 @@ import { persist } from "zustand/middleware"
 
 export const useGeneralStore = create((set) => ({
   showCartMenu: false,
-  cartData: {},
-  checkoutData: {
-    contact: "",
-    address: {},
-  },
+  showMobileMenu: false,
   shippingMethod: {},
   paymentMethod: {},
-  setShowCartMenu: (payload) => set({ showCartMenu: payload }),
-  setCartData: (payload) => set({ cartData: payload }),
-  setCheckoutData: (payload) => set({ checkoutData: payload }),
+  setShowMobileMenu: (showMobileMenu) => set({ showMobileMenu }),
+  setShowCartMenu: (showCartMenu) => set({ showCartMenu }),
   setShippingMethod: (shippingMethod) => set({ shippingMethod }),
   setPaymentMethod: (paymentMethod) => set({ paymentMethod }),
 }))
@@ -32,13 +27,9 @@ export const useGeneralPersistStore = create(
         postcode: "",
         country: "ID",
       },
-      shippingMethod: {},
-      paymentMethod: {},
       cartData: {},
       setContact: (contact) => set({ contact }),
       setAddress: (address) => set({ address }),
-      setShippingMethod: (shippingMethod) => set({ shippingMethod }),
-      setPaymentMethod: (paymentMethod) => set({ paymentMethod }),
       setCartData: (payload) => set({ cartData: payload }),
     }),
     {

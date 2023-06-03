@@ -6,6 +6,7 @@ import useStore from "store/useStore"
 import Cart from "./Cart/cart"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
+import MobileMenu from "./MobileMenu"
 
 function Layout({ children }) {
   const checkoutStore = useStore(useGeneralPersistStore, (state) => state)
@@ -24,8 +25,11 @@ function Layout({ children }) {
     <>
       <Navbar />
       <Cart />
-      {children}
-      <Footer />
+      <MobileMenu />
+      <div className="layout-children">
+        {children}
+        <Footer />
+      </div>
     </>
   )
 }

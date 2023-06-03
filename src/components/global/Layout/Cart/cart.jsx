@@ -4,6 +4,7 @@ import { FormatCurrency } from "lib/utils"
 import { useGeneralStore } from "store"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { slide as Menu } from "react-burger-menu"
 import CartItem from "./cart-item"
 
 function Cart() {

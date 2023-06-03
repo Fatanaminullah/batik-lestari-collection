@@ -1,9 +1,14 @@
 .navbar {
     background: $gray-900;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
-    height: 100px;
+    height: 85px;
+    z-index: 1001;
     .container {
         display: flex;
         align-items: center;
@@ -21,6 +26,9 @@
                         @extend .text-white;
                     }
                 }
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                }
             }
         }
         .navbar-brand {
@@ -30,13 +38,29 @@
             margin-left: auto;
             margin-right: auto;
             width: 50px;
+            @include media-breakpoint-down(sm) {
+                left: 1rem;
+                margin-left: 0;
+            }
         }
         .navbar-right {
-            .btn-cart {
+            display: flex;
+            align-items: center;
+            .btn-cart,
+            .btn-menu-toggle {
                 cursor: pointer;
+                margin-left: 1rem;
                 i {
                     font-size: 1.5rem;
                     color: $white;
+                }
+            }
+            @include media-breakpoint-down(sm) {
+                margin-right: -1.25rem;
+            }
+            @include media-breakpoint-up(md) {
+                .btn-menu-toggle {
+                    display: none;
                 }
             }
         }
